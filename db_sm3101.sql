@@ -51,7 +51,17 @@ INSERT INTO `student` (`ID`, `SRCODE`, `NAME`, `CONTACT`, `SYMPTOM`, `PRESCRIPTI
 (7, '21-33388', 'Christian Orense', '0946567980', 'Headache', 'Biogesic', '2023-11-15'),
 (8, '21-21312', 'Angelo Magpantay', '09534566575', 'Fever', 'Dolfenal', '2002-03-15'),
 (9, '21-67898', 'Michael Torres', '09577846513', 'Sore Eyes', 'Rest ', '2005-04-15'),
-(10, '21-32380', 'Ryan Manalo', '0964839271', 'Fever/ Lagnat', 'Bioflu', '2023-11-16');
+(10, '21-32380', 'Ryan Manalo', '0964839271', 'Fever/ Lagnat', 'Bioflu', '2023-11-16'),
+(11, '21-35671', 'Claire Phil', '0964872901', 'Fever/ Lagnat', 'Bioflu', '2023-11-17'),
+(12, '21-97895', 'Chris Griffin', '0964872901', 'Sore Eyes', 'Rest', '2023-11-17'),
+(13, '21-97895', 'Chris Griffin', '0964872901', 'Sore Eyes', 'Rest', '2023-11-17'),
+(14, '21-12345', 'Mel Encarnado', '09648392712', 'Puyat', 'Sleep ', '2023-11-18'),
+(15, '21-33388', 'Christian Orense', '0946567980', 'Headache', 'Biogesic', '2023-11-19'),
+(16, '21-12345', 'Mel Encarnado', '092784138931', 'Headache', 'Biogesic', '2023-11-20'),
+(17, '21-33388', 'Savior Tipan', '09922925447', 'Heache', 'Matulog', '2023-11-20'),
+(18, '21-24689', 'Bea Manalo', '098765456328', 'Fever/ Lagnat', 'Bioflu', '2023-11-21'),
+(19, '21-67898', 'Michael Torres', '09577846513', 'Sore Eyes', 'Rest ', '2023-11-22'),
+(20, '21-35671', 'Claire Phil', '0964872901', 'Fever/ Lagnat', 'Bioflu', '2023-11-25');
 
 -- --------------------------------------------------------
 
@@ -75,7 +85,12 @@ INSERT INTO `tbempinfo` (`empid`, `lastname`, `firstname`, `department`) VALUES
 (2, 'dimaala', 'ayen', 'cabe'),
 (3, 'mendoza', 'paul', 'cas'),
 (4, 'dimaandal', 'roy', 'cics'),
-(5, 'esperanza', 'shane', 'cabe');
+(5, 'esperanza', 'shane', 'cabe'),
+(6, 'esperanza', 'shane', 'cabe'),
+(7, 'macalintal', 'kyla', 'cics'),
+(8, 'venerable', 'mike', 'cics'),
+(9, 'tenoso', 'chrizelle', 'cics'),
+(10, 'aranas', 'kyhel', 'cabe');
 
 -- --------------------------------------------------------
 
@@ -102,7 +117,9 @@ INSERT INTO `tbstudinfo` (`studid`, `lastname`, `firstname`, `course`) VALUES
 (5, 'alip', 'ella', 'bsit'),
 (6, 'tipan', 'allen', 'bsit'),
 (7, 'dimaala', 'ayen', 'bssc'),
-(8, 'matibag', 'chris', 'bpa');
+(8, 'matibag', 'chris', 'bpa'),
+(9, 'maranan', 'carl', 'bpa'),
+(10, 'sabilio', 'erik', 'bsit');
 
 --
 -- Indexes for dumped tables
