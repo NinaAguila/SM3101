@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 21, 2023 at 11:12 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Host: 127.0.0.1:3308
+-- Generation Time: Oct 24, 2023 at 09:28 AM
+-- Server version: 8.0.18
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,60 +19,53 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `healthcaresystem`
+-- Database: `db_sm3101`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `student`
+-- Table structure for table `tbempinfo`
 --
 
-CREATE TABLE `student` (
-  `ID` int(30) NOT NULL,
-  `SRCODE` varchar(255) NOT NULL,
-  `NAME` varchar(255) NOT NULL,
-  `CONTACT` varchar(255) NOT NULL,
-  `SYMPTOM` varchar(255) NOT NULL,
-  `PRESCRIPTION` varchar(255) NOT NULL,
-  `DATE` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+DROP TABLE IF EXISTS `tbempinfo`;
+CREATE TABLE IF NOT EXISTS `tbempinfo` (
+  `empid` int(11) NOT NULL AUTO_INCREMENT,
+  `lastname` varchar(25) NOT NULL,
+  `firstname` varchar(25) NOT NULL,
+  `department` varchar(20) NOT NULL,
+  PRIMARY KEY (`empid`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 ;
 
 --
--- Dumping data for table `student`
+-- Dumping data for table `tbempinfo`
 --
 
-INSERT INTO `student` (`ID`, `SRCODE`, `NAME`, `CONTACT`, `SYMPTOM`, `PRESCRIPTION`, `DATE`) VALUES
-(1, '21-12345', 'Mel Encarnado', '092784138931', 'Headache', 'Biogesic', '2023-11-10'),
-(2, '21-56787', 'Kyla Macalintal', '09658628295', 'Eye Bags', 'Sleep', '2012-04-05'),
-(3, '21-32380', 'Ryan Manalo', '0964839271', 'Fever/ Lagnat', 'Bioflu', '2023-11-10'),
-(4, '21-12345', 'Mel Encarnado', '09648392712', 'Puyat', 'Sleep ', '2023-11-10'),
-(5, '21-24689', 'Bea Manalo', '098765456328', 'Fever/ Lagnat', 'Bioflu', '2023-11-10'),
-(6, '21-33388', 'Savior Tipan', '09922925447', 'Heache', 'Matulog', '2023-11-10'),
-(7, '21-33388', 'Christian Orense', '0946567980', 'Headache', 'Biogesic', '2023-11-15'),
-(8, '21-21312', 'Angelo Magpantay', '09534566575', 'Fever', 'Dolfenal', '2002-03-15'),
-(9, '21-67898', 'Michael Torres', '09577846513', 'Sore Eyes', 'Rest ', '2005-04-15'),
-(10, '21-32380', 'Ryan Manalo', '0964839271', 'Fever/ Lagnat', 'Bioflu', '2023-11-16');
+INSERT INTO `tbempinfo` (`empid`, `lastname`, `firstname`, `department`) VALUES
+(1, 'aguila', 'nina', 'cics');
+
+-- --------------------------------------------------------
 
 --
--- Indexes for dumped tables
+-- Table structure for table `tbstudinfo`
 --
 
---
--- Indexes for table `student`
---
-ALTER TABLE `student`
-  ADD PRIMARY KEY (`ID`);
+DROP TABLE IF EXISTS `tbstudinfo`;
+CREATE TABLE IF NOT EXISTS `tbstudinfo` (
+  `studid` int(11) NOT NULL AUTO_INCREMENT,
+  `lastname` varchar(25) NOT NULL,
+  `firstname` varchar(25) NOT NULL,
+  `course` varchar(20) NOT NULL,
+  PRIMARY KEY (`studid`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 ;
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Dumping data for table `tbstudinfo`
 --
 
---
--- AUTO_INCREMENT for table `student`
---
-ALTER TABLE `student`
-  MODIFY `ID` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+INSERT INTO `tbstudinfo` (`studid`, `lastname`, `firstname`, `course`) VALUES
+(1, 'parker', 'peter', 'bsit'),
+(2, 'kent', 'clark', 'bscs');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
