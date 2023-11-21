@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Nov 21, 2023 at 09:39 AM
--- Server version: 8.0.31
--- PHP Version: 8.0.26
+-- Host: 127.0.0.1
+-- Generation Time: Nov 16, 2023 at 05:49 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,87 +18,60 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_sm3101`
+-- Database: `healthcaresystem`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `editparking`
+-- Table structure for table `student`
 --
 
-DROP TABLE IF EXISTS `editparking`;
-CREATE TABLE IF NOT EXISTS `editparking` (
-  `Id_number` int NOT NULL,
-  `Name` varchar(50) DEFAULT NULL,
-  `Address` varchar(50) DEFAULT NULL,
-  `Position` varchar(50) DEFAULT NULL,
-  `Contact_number` varchar(50) DEFAULT NULL,
-  `Car_model` varchar(50) DEFAULT NULL,
-  `Plate_number` varchar(50) DEFAULT NULL,
-  `Primary_color` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`Id_number`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `student` (
+  `ID` int(30) NOT NULL,
+  `SRCODE` varchar(255) NOT NULL,
+  `NAME` varchar(255) NOT NULL,
+  `CONTACT` varchar(255) NOT NULL,
+  `SYMPTOM` varchar(255) NOT NULL,
+  `PRESCRIPTION` varchar(255) NOT NULL,
+  `DATE` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `editparking`
+-- Dumping data for table `student`
 --
 
-INSERT INTO `editparking` (`Id_number`, `Name`, `Address`, `Position`, `Contact_number`, `Car_model`, `Plate_number`, `Primary_color`) VALUES
-(2020202, 'May name na', 'May Address na', 'May position na', '123450987', 'Fake Taxi', 'SECRET123', 'Fake Taxi'),
-(78237, 'Son Goku', 'Banay-Banay Lipa', 'Supersaiyan3', '2147483647', 'Ford Mustang', 'QWE145', 'Blue'),
-(99999, 'Itachi Uchiha', 'Konoha', 'Instructor', '2147483647', 'Toyota GR Supra', 'OMG888', 'Gray'),
-(92385, 'Andrew Tate', 'Secret Address', 'Visitor', '2147483647', 'Bugatti Chiron', 'TOPG543', 'Orange'),
-(66666, 'Andrei', 'Lipa City', 'Student', '2147483647', 'Ferrari F12', 'SHH111', 'Dark-Red'),
-(789, 'Jessica', 'Hindi na Homeless', 'Wala', '976', 'Walang car', 'JKH123', 'Walang car'),
-(486123, 'Eloyyy', 'Inosloban', 'President', '2147483647', 'HYUNDAI', 'AYU890', 'Blue'),
-(10101, 'Bobo', 'Bobo ka', 'Bobong position', '0999781231', 'Bobong car', 'BOBO123', 'BOBO RED'),
-(789789, 'Yuri', 'Japan', 'Doggy', '9102381923', 'Mustang', 'GOAT990', 'YELLOW-RED');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbempinfo`
---
-
-DROP TABLE IF EXISTS `tbempinfo`;
-CREATE TABLE IF NOT EXISTS `tbempinfo` (
-  `empid` int NOT NULL AUTO_INCREMENT,
-  `lastname` varchar(25) NOT NULL,
-  `firstname` varchar(25) NOT NULL,
-  `department` varchar(20) NOT NULL,
-  PRIMARY KEY (`empid`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+INSERT INTO `student` (`ID`, `SRCODE`, `NAME`, `CONTACT`, `SYMPTOM`, `PRESCRIPTION`, `DATE`) VALUES
+(1, '21-12345', 'Mel Encarnado', '092784138931', 'Headache', 'Biogesic', '2023-11-10'),
+(2, '21-56787', 'Kyla Macalintal', '09658628295', 'Eye Bags', 'Sleep', '2012-04-05'),
+(3, '21-32380', 'Ryan Manalo', '0964839271', 'Fever/ Lagnat', 'Bioflu', '2023-11-10'),
+(4, '21-12345', 'Mel Encarnado', '09648392712', 'Puyat', 'Sleep ', '2023-11-10'),
+(5, '21-24689', 'Bea Manalo', '098765456328', 'Fever/ Lagnat', 'Bioflu', '2023-11-10'),
+(6, '21-33388', 'Savior Tipan', '09922925447', 'Heache', 'Matulog', '2023-11-10'),
+(7, '21-33388', 'Christian Orense', '0946567980', 'Headache', 'Biogesic', '2023-11-15'),
+(8, '21-21312', 'Angelo Magpantay', '09534566575', 'Fever', 'Dolfenal', '2002-03-15'),
+(9, '21-67898', 'Michael Torres', '09577846513', 'Sore Eyes', 'Rest ', '2005-04-15'),
+(10, '21-32380', 'Ryan Manalo', '0964839271', 'Fever/ Lagnat', 'Bioflu', '2023-11-16');
 
 --
--- Dumping data for table `tbempinfo`
+-- Indexes for dumped tables
 --
 
-INSERT INTO `tbempinfo` (`empid`, `lastname`, `firstname`, `department`) VALUES
-(1, 'aguila', 'nina', 'cics');
-
--- --------------------------------------------------------
+--
+-- Indexes for table `student`
+--
+ALTER TABLE `student`
+  ADD PRIMARY KEY (`ID`);
 
 --
--- Table structure for table `tbstudinfo`
+-- AUTO_INCREMENT for dumped tables
 --
 
-DROP TABLE IF EXISTS `tbstudinfo`;
-CREATE TABLE IF NOT EXISTS `tbstudinfo` (
-  `studid` int NOT NULL AUTO_INCREMENT,
-  `lastname` varchar(25) NOT NULL,
-  `firstname` varchar(25) NOT NULL,
-  `course` varchar(20) NOT NULL,
-  PRIMARY KEY (`studid`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
 --
--- Dumping data for table `tbstudinfo`
+-- AUTO_INCREMENT for table `student`
 --
-
-INSERT INTO `tbstudinfo` (`studid`, `lastname`, `firstname`, `course`) VALUES
-(1, 'parker', 'peter', 'bsit'),
-(2, 'kent', 'clark', 'bscs');
+ALTER TABLE `student`
+  MODIFY `ID` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
