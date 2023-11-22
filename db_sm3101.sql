@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 22, 2023 at 09:11 AM
+-- Generation Time: Nov 22, 2023 at 09:40 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -179,6 +179,7 @@ CREATE TABLE IF NOT EXISTS `tbstudent` (
   `srCode` varchar(25) NOT NULL,
   `studPass` varchar(50) DEFAULT NULL,
   `deptName` varchar(50) DEFAULT NULL,
+  `section` varchar(25) NOT NULL,
   `studid` int DEFAULT NULL,
   PRIMARY KEY (`srCode`),
   KEY `studid` (`studid`),
@@ -189,10 +190,10 @@ CREATE TABLE IF NOT EXISTS `tbstudent` (
 -- Dumping data for table `tbstudent`
 --
 
-INSERT INTO `tbstudent` (`srCode`, `studPass`, `deptName`, `studid`) VALUES
-('21-34890', '123', 'CICS', 3),
-('21-36550', '123', 'CICS', 5),
-('21-37506', '123', 'CICS', 4);
+INSERT INTO `tbstudent` (`srCode`, `studPass`, `deptName`, `section`, `studid`) VALUES
+('21-34890', '123', 'CICS', 'SM-3101', 3),
+('21-36550', '123', 'CICS', 'SM-3101', 5),
+('21-37506', '123', 'CICS', 'SM-3101', 4);
 
 -- --------------------------------------------------------
 
