@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 22, 2023 at 10:05 AM
+-- Generation Time: Nov 22, 2023 at 10:52 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -30,8 +30,8 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `student`;
 CREATE TABLE IF NOT EXISTS `student` (
   `ID` int NOT NULL AUTO_INCREMENT,
+  `incharge` varchar(255) NOT NULL,
   `SRCODE` varchar(255) DEFAULT NULL,
-  `PATIENT_NAME` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `CONTACT` varchar(50) DEFAULT NULL,
   `SYMPTOM` varchar(50) DEFAULT NULL,
   `PRESCRIPTION` varchar(255) DEFAULT NULL,
@@ -47,18 +47,18 @@ CREATE TABLE IF NOT EXISTS `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`ID`, `SRCODE`, `PATIENT_NAME`, `CONTACT`, `SYMPTOM`, `PRESCRIPTION`, `DATE`, `empid`, `studid`) VALUES
-(1, '21-76748', 'angelo', '098762487', 'headache', 'biogesic', '2023-11-22', NULL, NULL),
-(2, '21-76748', 'savior', '0987654', 'headache', 'biogesic', '2023-11-23', NULL, NULL),
-(3, '21-35462', 'savior', '0908087709', 'lagnat', 'bidesic', '2023-11-01', 1, 1),
-(5, '21-3241', 'Kent_Clark', '012312411241', 'flu', 'bioflu', '2023-11-01', 1, 2),
-(6, '21-3241', 'Kent_Clark', '012312411241', 'flu', 'bioflu', '2023-11-01', 1, 2),
-(7, '21-3413', 'Coronel_Marielle', '0912432452', 'asthma', 'asthmaline', '2023-11-01', 3, 3),
-(8, '21-3413', 'Coronel_Marielle', '0912432452', 'asthma', 'asthmaline', '2023-11-01', 3, 3),
-(9, '21-12345', 'San_Pablo_Yukari', '09912345123', 'flu', 'biogesic', '2023-11-01', 1, 4),
-(10, '21-14512', 'Custodio_Bea', '09084124433', 'Flu', 'Bioflu', '2023-11-08', 5, 5),
-(11, '21-12345', 'San_Pablo_Yukari', '09912345123', 'flu', 'biogesic', '2023-11-01', 1, 4),
-(12, '21-14512', 'Custodio_Bea', '09084124433', 'Flu', 'Bioflu', '2023-11-08', 5, 5);
+INSERT INTO `student` (`ID`, `incharge`, `SRCODE`, `CONTACT`, `SYMPTOM`, `PRESCRIPTION`, `DATE`, `empid`, `studid`) VALUES
+(1, '', '21-76748', '098762487', 'headache', 'biogesic', '2023-11-22', NULL, NULL),
+(2, '', '21-76748', '0987654', 'headache', 'biogesic', '2023-11-23', NULL, NULL),
+(3, '', '21-35462', '0908087709', 'lagnat', 'bidesic', '2023-11-01', 1, 1),
+(5, '', '21-3241', '012312411241', 'flu', 'bioflu', '2023-11-01', 1, 2),
+(6, '', '21-3241', '012312411241', 'flu', 'bioflu', '2023-11-01', 1, 2),
+(7, '', '21-3413', '0912432452', 'asthma', 'asthmaline', '2023-11-01', 3, 3),
+(8, '', '21-3413', '0912432452', 'asthma', 'asthmaline', '2023-11-01', 3, 3),
+(9, '', '21-12345', '09912345123', 'flu', 'biogesic', '2023-11-01', 1, 4),
+(10, '', '21-14512', '09084124433', 'Flu', 'Bioflu', '2023-11-08', 5, 5),
+(11, '', '21-12345', '09912345123', 'flu', 'biogesic', '2023-11-01', 1, 4),
+(12, '', '21-14512', '09084124433', 'Flu', 'Bioflu', '2023-11-08', 5, 5);
 
 -- --------------------------------------------------------
 
@@ -143,8 +143,7 @@ CREATE TABLE IF NOT EXISTS `tbusers` (
 --
 
 INSERT INTO `tbusers` (`id`, `username`, `password`, `empid`) VALUES
-(1, 'Aguila_Nina', 'password', 1),
-(2, 'admin', '2408', 2);
+(1, 'Aguila_Nina', 'password', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
