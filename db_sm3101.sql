@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 21, 2023 at 10:00 AM
+-- Generation Time: Nov 21, 2023 at 10:47 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -45,14 +45,13 @@ CREATE TABLE IF NOT EXISTS `editparking` (
 --
 
 INSERT INTO `editparking` (`Id_number`, `Name`, `Address`, `Position`, `Contact_number`, `Car_model`, `Plate_number`, `Primary_color`) VALUES
-(2020202, 'May name na', 'May Address na', 'May position na', '123450987', 'Fake Taxi', 'SECRET123', 'Fake Taxi'),
-(78237, 'Son Goku', 'Banay-Banay Lipa', 'Supersaiyan3', '2147483647', 'Ford Mustang', 'QWE145', 'Blue'),
+(2020202, 'May name na', 'May Address na', 'May position na', '123450987', 'SUZUKI', 'SECRET123', 'YELLOW'),
+(78237, 'Son Goku', 'Banay-Banay Lipa', 'Teacher', '2147483647', 'Ford Mustang', 'QWE145', 'Blue'),
 (99999, 'Itachi Uchiha', 'Konoha', 'Instructor', '2147483647', 'Toyota GR Supra', 'OMG888', 'Gray'),
 (92385, 'Andrew Tate', 'Secret Address', 'Visitor', '2147483647', 'Bugatti Chiron', 'TOPG543', 'Orange'),
 (66666, 'Andrei', 'Lipa City', 'Student', '2147483647', 'Ferrari F12', 'SHH111', 'Dark-Red'),
 (789, 'Jessica', 'Hindi na Homeless', 'Wala', '976', 'Walang car', 'JKH123', 'Walang car'),
-(486123, 'Eloyyy', 'Inosloban', 'President', '2147483647', 'HYUNDAI', 'AYU890', 'Blue'),
-(789789, 'Yuri', 'Japan', 'Doggy', '9102381923', 'Mustang', 'GOAT990', 'YELLOW-RED');
+(486123, 'Eloyyy', 'Inosloban', 'President', '2147483647', 'HYUNDAI', 'AYU890', 'Blue');
 
 -- --------------------------------------------------------
 
