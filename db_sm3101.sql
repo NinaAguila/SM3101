@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 22, 2023 at 10:04 AM
+-- Generation Time: Nov 22, 2023 at 10:10 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -82,11 +82,11 @@ INSERT INTO `tbempinfo` (`empid`, `lastname`, `firstname`, `department`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblguess`
+-- Table structure for table `tblguest`
 --
 
-DROP TABLE IF EXISTS `tblguess`;
-CREATE TABLE IF NOT EXISTS `tblguess` (
+DROP TABLE IF EXISTS `tblguest`;
+CREATE TABLE IF NOT EXISTS `tblguest` (
   `studid` int DEFAULT NULL,
   `Address` varchar(50) DEFAULT NULL,
   `Contact_number` varchar(50) DEFAULT NULL,
@@ -97,10 +97,10 @@ CREATE TABLE IF NOT EXISTS `tblguess` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `tblguess`
+-- Dumping data for table `tblguest`
 --
 
-INSERT INTO `tblguess` (`studid`, `Address`, `Contact_number`, `Car_model`, `Plate_number`, `Primary_color`) VALUES
+INSERT INTO `tblguest` (`studid`, `Address`, `Contact_number`, `Car_model`, `Plate_number`, `Primary_color`) VALUES
 (2, 'Hongkong Manila', '123456789', 'Mazda MX5', 'GIO090', 'Red'),
 (5, 'SanJuan', '123456789', 'Porsche 911', 'SUP123', 'Gray'),
 (4, 'P.ulan Lipa City', '123456789', 'Chevrolet Camaro', 'BUBU675', 'White'),
