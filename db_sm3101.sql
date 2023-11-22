@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
-
+-- Generation Time: Nov 22, 2023 at 10:34 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `admin_tbl` (
 --
 
 INSERT INTO `admin_tbl` (`admin_id`, `empid`) VALUES
-(501, 101);
+(501, 3);
 
 -- --------------------------------------------------------
 
@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `tablecomplaints` (
   PRIMARY KEY (`complaintNumber`),
   KEY `sr-code` (`sr-code`),
   KEY `category_id` (`category_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tablecomplaints`
@@ -131,109 +131,10 @@ INSERT INTO `tablecomplaints` (`complaintNumber`, `sr-code`, `category_id`, `com
 (2, 1001, 1, 'Cheating', 'Someone is cheating during exam.', '', '2023-11-21 16:30:10', '', '0000-00-00 00:00:00'),
 (12, 1003, 5, 'Dishonesty', 'saw someone using phone during exam', '', '2023-11-21 16:30:24', '', '0000-00-00 00:00:00'),
 (7, 1004, 4, 'Humiliation', 'The teacher makes an embarrassing comment about me', '', '2023-11-21 16:30:37', '', '0000-00-00 00:00:00'),
-(13, 1, 3, 'Complaint For Student', 'hello, testing po, hehe', '', '2023-11-21 17:50:15', NULL, '0000-00-00 00:00:00');
+(13, 1, 3, 'Complaint For Student', 'hello, testing po, hehe', '', '2023-11-21 17:50:15', NULL, '0000-00-00 00:00:00'),
+(14, 1, 2, 'Complaint for Services', 'hshhshs', '', '2023-11-22 10:31:18', NULL, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `tbempcontact`
---
-
-DROP TABLE IF EXISTS `tbempcontact`;
-CREATE TABLE IF NOT EXISTS `tbempcontact` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `empid` int NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `contact_no` bigint NOT NULL,
-  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `empid` (`empid`)
-) ENGINE=MyISAM AUTO_INCREMENT=902 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tbempcontact`
---
-
-INSERT INTO `tbempcontact` (`id`, `empid`, `password`, `email`, `contact_no`, `address`) VALUES
-(901, 101, 'staff', 'balazon@gmail.com', 9123456789, 'Lipa City, Batangas');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbempinfo`
---
-
-DROP TABLE IF EXISTS `tbempinfo`;
-CREATE TABLE IF NOT EXISTS `tbempinfo` (
-  `empid` int NOT NULL AUTO_INCREMENT,
-  `lastname` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `firstname` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `department` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`empid`)
-) ENGINE=MyISAM AUTO_INCREMENT=102 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tbempinfo`
---
-
-INSERT INTO `tbempinfo` (`empid`, `lastname`, `firstname`, `department`) VALUES
-(1, 'aguila', 'nina', 'cics'),
-(101, 'Balazon', 'Francis', 'CICS');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbstudcontact`
---
-
-DROP TABLE IF EXISTS `tbstudcontact`;
-CREATE TABLE IF NOT EXISTS `tbstudcontact` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `studid` int NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `contact_no` bigint NOT NULL,
-  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `studid` (`studid`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tbstudcontact`
---
-
-INSERT INTO `tbstudcontact` (`id`, `studid`, `password`, `email`, `contact_no`, `address`) VALUES
-(1, 1001, '10c7ccc7a4f0aff03c915c485565b9da', 'ryan@gmail.com', 9123456789, 'Cuenca, Batangas');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbstudinfo`
---
-
-DROP TABLE IF EXISTS `tbstudinfo`;
-CREATE TABLE IF NOT EXISTS `tbstudinfo` (
-  `studid` int NOT NULL AUTO_INCREMENT,
-  `lastname` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `firstname` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `course` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`studid`)
-) ENGINE=MyISAM AUTO_INCREMENT=1006 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tbstudinfo`
---
-
-INSERT INTO `tbstudinfo` (`studid`, `lastname`, `firstname`, `course`) VALUES
-(1, 'parker', 'peter', 'bsit'),
-(2, 'kent', 'clark', 'bscs'),
-(1001, 'Ramos', 'Ryan Ceasar', 'BSIT'),
-(1002, 'Magnaye', 'Erika', 'BSIT'),
-(1003, 'Gabuya', 'Jenny Mae', 'BSIT'),
-(1004, 'Peloramas', 'Jelladane', 'BSIT'),
-(1005, 'Dimaculangan', 'Everson', 'BSIT');
-COMMIT;
 
 --
 -- Table structure for table `tbdepacc`
@@ -285,6 +186,31 @@ INSERT INTO `tbdepartment` (`deptName`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbempcontact`
+--
+
+DROP TABLE IF EXISTS `tbempcontact`;
+CREATE TABLE IF NOT EXISTS `tbempcontact` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `empid` int NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `contact_no` bigint NOT NULL,
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `empid` (`empid`)
+) ENGINE=MyISAM AUTO_INCREMENT=902 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbempcontact`
+--
+
+INSERT INTO `tbempcontact` (`id`, `empid`, `password`, `email`, `contact_no`, `address`) VALUES
+(901, 3, 'e00cf25ad42683b3df678c61f42c6bda', 'balazon@gmail.com', 9123456789, 'Lipa City, Batangas');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbempinfo`
 --
 
@@ -295,7 +221,7 @@ CREATE TABLE IF NOT EXISTS `tbempinfo` (
   `firstname` varchar(25) NOT NULL,
   `department` varchar(20) NOT NULL,
   PRIMARY KEY (`empid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tbempinfo`
@@ -303,7 +229,8 @@ CREATE TABLE IF NOT EXISTS `tbempinfo` (
 
 INSERT INTO `tbempinfo` (`empid`, `lastname`, `firstname`, `department`) VALUES
 (1, 'aguila', 'nina', 'cics'),
-(2, 'Reyes', 'Jones', 'Cics');
+(2, 'Reyes', 'Jones', 'Cics'),
+(3, 'Balazon', 'Francis', 'CICS');
 
 -- --------------------------------------------------------
 
@@ -383,6 +310,31 @@ INSERT INTO `tbsecurity` (`adminId`, `adminUserN`, `adminPass`, `empid`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbstudcontact`
+--
+
+DROP TABLE IF EXISTS `tbstudcontact`;
+CREATE TABLE IF NOT EXISTS `tbstudcontact` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `studid` int NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `contact_no` bigint NOT NULL,
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `studid` (`studid`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbstudcontact`
+--
+
+INSERT INTO `tbstudcontact` (`id`, `studid`, `password`, `email`, `contact_no`, `address`) VALUES
+(1, 6, '5d41402abc4b2a76b9719d911017c592', 'ryan@gmail.com', 9123456789, 'Cuenca, Batangas');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbstudent`
 --
 
@@ -420,7 +372,7 @@ CREATE TABLE IF NOT EXISTS `tbstudinfo` (
   `firstname` varchar(25) NOT NULL,
   `course` varchar(20) NOT NULL,
   PRIMARY KEY (`studid`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tbstudinfo`
@@ -431,7 +383,8 @@ INSERT INTO `tbstudinfo` (`studid`, `lastname`, `firstname`, `course`) VALUES
 (2, 'kent', 'clark', 'bscs'),
 (3, 'Roxas', 'Kent', 'bsit'),
 (4, 'Custodio', 'Juliana Beatriz', 'bsit'),
-(5, 'Lasay', 'John Lloyd', 'bsit');
+(5, 'Lasay', 'John Lloyd', 'bsit'),
+(6, 'Ramos', 'Ryan Ceasar', 'BSIT');
 
 --
 -- Constraints for dumped tables
