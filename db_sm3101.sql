@@ -119,6 +119,7 @@ CREATE TABLE IF NOT EXISTS `tablecomplaints` (
   `complaintFile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `regDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `lastUpdationDate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`complaintNumber`),
   KEY `sr-code` (`sr-code`),
   KEY `category_id` (`category_id`)
@@ -128,12 +129,12 @@ CREATE TABLE IF NOT EXISTS `tablecomplaints` (
 -- Dumping data for table `tablecomplaints`
 --
 
-INSERT INTO `tablecomplaints` (`complaintNumber`, `sr-code`, `category_id`, `complaintName`, `complaintDetails`, `complaintFile`, `regDate`, `status`) VALUES
-(1, 1001, 1, 'Plagiarism', 'Someone cheated.', '', '2023-11-21 16:29:56', ''),
-(2, 1001, 1, 'Cheating', 'Someone is cheating during exam.', '', '2023-11-21 16:30:10', ''),
-(12, 1003, 5, 'Dishonesty', 'saw someone using phone during exam', '', '2023-11-21 16:30:24', ''),
-(7, 1004, 4, 'Humiliation', 'The teacher makes an embarrassing comment about me', '', '2023-11-21 16:30:37', ''),
-(13, 1, 3, 'Complaint For Student', 'hello, testing po, hehe', '', '2023-11-21 17:50:15', NULL);
+INSERT INTO `tablecomplaints` (`complaintNumber`, `sr-code`, `category_id`, `complaintName`, `complaintDetails`, `complaintFile`, `regDate`, `status`, `lastUpdationDate`) VALUES
+(1, 1001, 1, 'Plagiarism', 'Someone cheated.', '', '2023-11-21 16:29:56', '', '0000-00-00 00:00:00'),
+(2, 1001, 1, 'Cheating', 'Someone is cheating during exam.', '', '2023-11-21 16:30:10', '', '0000-00-00 00:00:00'),
+(12, 1003, 5, 'Dishonesty', 'saw someone using phone during exam', '', '2023-11-21 16:30:24', '', '0000-00-00 00:00:00'),
+(7, 1004, 4, 'Humiliation', 'The teacher makes an embarrassing comment about me', '', '2023-11-21 16:30:37', '', '0000-00-00 00:00:00'),
+(13, 1, 3, 'Complaint For Student', 'hello, testing po, hehe', '', '2023-11-21 17:50:15', NULL, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
