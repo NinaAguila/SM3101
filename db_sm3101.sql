@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 21, 2023 at 03:09 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Host: 127.0.0.1:3306
+-- Generation Time: Nov 22, 2023 at 10:05 AM
+-- Server version: 8.0.31
+-- PHP Version: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,41 +27,38 @@ SET time_zone = "+00:00";
 -- Table structure for table `student`
 --
 
-CREATE TABLE `student` (
-  `ID` int(30) NOT NULL,
-  `SRCODE` varchar(255) NOT NULL,
-  `NAME` varchar(255) NOT NULL,
-  `CONTACT` varchar(255) NOT NULL,
-  `SYMPTOM` varchar(255) NOT NULL,
-  `PRESCRIPTION` varchar(255) NOT NULL,
-  `DATE` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE IF NOT EXISTS `student` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `SRCODE` varchar(255) DEFAULT NULL,
+  `PATIENT_NAME` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `CONTACT` varchar(50) DEFAULT NULL,
+  `SYMPTOM` varchar(50) DEFAULT NULL,
+  `PRESCRIPTION` varchar(255) DEFAULT NULL,
+  `DATE` date NOT NULL,
+  `empid` int DEFAULT NULL,
+  `studid` int DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `empid` (`empid`),
+  KEY `studid` (`studid`)
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`ID`, `SRCODE`, `NAME`, `CONTACT`, `SYMPTOM`, `PRESCRIPTION`, `DATE`) VALUES
-(1, '21-12345', 'Mel Encarnado', '092784138931', 'Headache', 'Biogesic', '2023-11-10'),
-(2, '21-56787', 'Kyla Macalintal', '09658628295', 'Eye Bags', 'Sleep', '2012-04-05'),
-(3, '21-32380', 'Ryan Manalo', '0964839271', 'Fever/ Lagnat', 'Bioflu', '2023-11-10'),
-(4, '21-12345', 'Mel Encarnado', '09648392712', 'Puyat', 'Sleep ', '2023-11-10'),
-(5, '21-24689', 'Bea Manalo', '098765456328', 'Fever/ Lagnat', 'Bioflu', '2023-11-10'),
-(6, '21-33388', 'Savior Tipan', '09922925447', 'Heache', 'Matulog', '2023-11-10'),
-(7, '21-33388', 'Christian Orense', '0946567980', 'Headache', 'Biogesic', '2023-11-15'),
-(8, '21-21312', 'Angelo Magpantay', '09534566575', 'Fever', 'Dolfenal', '2002-03-15'),
-(9, '21-67898', 'Michael Torres', '09577846513', 'Sore Eyes', 'Rest ', '2005-04-15'),
-(10, '21-32380', 'Ryan Manalo', '0964839271', 'Fever/ Lagnat', 'Bioflu', '2023-11-16'),
-(11, '21-35671', 'Claire Phil', '0964872901', 'Fever/ Lagnat', 'Bioflu', '2023-11-17'),
-(12, '21-97895', 'Chris Griffin', '0964872901', 'Sore Eyes', 'Rest', '2023-11-17'),
-(13, '21-97895', 'Chris Griffin', '0964872901', 'Sore Eyes', 'Rest', '2023-11-17'),
-(14, '21-12345', 'Mel Encarnado', '09648392712', 'Puyat', 'Sleep ', '2023-11-18'),
-(15, '21-33388', 'Christian Orense', '0946567980', 'Headache', 'Biogesic', '2023-11-19'),
-(16, '21-12345', 'Mel Encarnado', '092784138931', 'Headache', 'Biogesic', '2023-11-20'),
-(17, '21-33388', 'Savior Tipan', '09922925447', 'Heache', 'Matulog', '2023-11-20'),
-(18, '21-24689', 'Bea Manalo', '098765456328', 'Fever/ Lagnat', 'Bioflu', '2023-11-21'),
-(19, '21-67898', 'Michael Torres', '09577846513', 'Sore Eyes', 'Rest ', '2023-11-22'),
-(20, '21-35671', 'Claire Phil', '0964872901', 'Fever/ Lagnat', 'Bioflu', '2023-11-25');
+INSERT INTO `student` (`ID`, `SRCODE`, `PATIENT_NAME`, `CONTACT`, `SYMPTOM`, `PRESCRIPTION`, `DATE`, `empid`, `studid`) VALUES
+(1, '21-76748', 'angelo', '098762487', 'headache', 'biogesic', '2023-11-22', NULL, NULL),
+(2, '21-76748', 'savior', '0987654', 'headache', 'biogesic', '2023-11-23', NULL, NULL),
+(3, '21-35462', 'savior', '0908087709', 'lagnat', 'bidesic', '2023-11-01', 1, 1),
+(5, '21-3241', 'Kent_Clark', '012312411241', 'flu', 'bioflu', '2023-11-01', 1, 2),
+(6, '21-3241', 'Kent_Clark', '012312411241', 'flu', 'bioflu', '2023-11-01', 1, 2),
+(7, '21-3413', 'Coronel_Marielle', '0912432452', 'asthma', 'asthmaline', '2023-11-01', 3, 3),
+(8, '21-3413', 'Coronel_Marielle', '0912432452', 'asthma', 'asthmaline', '2023-11-01', 3, 3),
+(9, '21-12345', 'San_Pablo_Yukari', '09912345123', 'flu', 'biogesic', '2023-11-01', 1, 4),
+(10, '21-14512', 'Custodio_Bea', '09084124433', 'Flu', 'Bioflu', '2023-11-08', 5, 5),
+(11, '21-12345', 'San_Pablo_Yukari', '09912345123', 'flu', 'biogesic', '2023-11-01', 1, 4),
+(12, '21-14512', 'Custodio_Bea', '09084124433', 'Flu', 'Bioflu', '2023-11-08', 5, 5);
 
 -- --------------------------------------------------------
 
@@ -69,12 +66,14 @@ INSERT INTO `student` (`ID`, `SRCODE`, `NAME`, `CONTACT`, `SYMPTOM`, `PRESCRIPTI
 -- Table structure for table `tbempinfo`
 --
 
-CREATE TABLE `tbempinfo` (
-  `empid` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbempinfo`;
+CREATE TABLE IF NOT EXISTS `tbempinfo` (
+  `empid` int NOT NULL AUTO_INCREMENT,
   `lastname` varchar(25) NOT NULL,
   `firstname` varchar(25) NOT NULL,
-  `department` varchar(20) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+  `department` varchar(20) NOT NULL,
+  PRIMARY KEY (`empid`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tbempinfo`
@@ -98,12 +97,14 @@ INSERT INTO `tbempinfo` (`empid`, `lastname`, `firstname`, `department`) VALUES
 -- Table structure for table `tbstudinfo`
 --
 
-CREATE TABLE `tbstudinfo` (
-  `studid` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbstudinfo`;
+CREATE TABLE IF NOT EXISTS `tbstudinfo` (
+  `studid` int NOT NULL AUTO_INCREMENT,
   `lastname` varchar(25) NOT NULL,
   `firstname` varchar(25) NOT NULL,
-  `course` varchar(20) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+  `course` varchar(20) NOT NULL,
+  PRIMARY KEY (`studid`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tbstudinfo`
@@ -121,49 +122,29 @@ INSERT INTO `tbstudinfo` (`studid`, `lastname`, `firstname`, `course`) VALUES
 (9, 'maranan', 'carl', 'bpa'),
 (10, 'sabilio', 'erik', 'bsit');
 
---
--- Indexes for dumped tables
---
+-- --------------------------------------------------------
 
 --
--- Indexes for table `student`
---
-ALTER TABLE `student`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `tbempinfo`
---
-ALTER TABLE `tbempinfo`
-  ADD PRIMARY KEY (`empid`);
-
---
--- Indexes for table `tbstudinfo`
---
-ALTER TABLE `tbstudinfo`
-  ADD PRIMARY KEY (`studid`);
-
---
--- AUTO_INCREMENT for dumped tables
+-- Table structure for table `tbusers`
 --
 
---
--- AUTO_INCREMENT for table `student`
---
-ALTER TABLE `student`
-  MODIFY `ID` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+DROP TABLE IF EXISTS `tbusers`;
+CREATE TABLE IF NOT EXISTS `tbusers` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `empid` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `empid` (`empid`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- AUTO_INCREMENT for table `tbempinfo`
+-- Dumping data for table `tbusers`
 --
-ALTER TABLE `tbempinfo`
-  MODIFY `empid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
---
--- AUTO_INCREMENT for table `tbstudinfo`
---
-ALTER TABLE `tbstudinfo`
-  MODIFY `studid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+INSERT INTO `tbusers` (`id`, `username`, `password`, `empid`) VALUES
+(1, 'Aguila_Nina', 'password', 1),
+(2, 'admin', '2408', 2);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
