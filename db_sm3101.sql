@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 22, 2023 at 09:28 AM
+-- Generation Time: Nov 22, 2023 at 09:32 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -37,22 +37,20 @@ CREATE TABLE IF NOT EXISTS `carparking` (
   `Plate_number` varchar(50) DEFAULT NULL,
   `Primary_color` varchar(50) DEFAULT NULL,
   `empid` int DEFAULT NULL,
-  `studid` int NOT NULL,
   PRIMARY KEY (`Id_number`),
-  KEY `empid` (`empid`),
-  KEY `studid` (`studid`)
+  KEY `empid` (`empid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `carparking`
 --
 
-INSERT INTO `carparking` (`Id_number`, `Address`, `Position`, `Contact_number`, `Car_model`, `Plate_number`, `Primary_color`, `empid`, `studid`) VALUES
-(1, 'Lipa City', 'Teacher', '09123456789', 'SUZUKI', 'SECRET123', 'YELLOW', 3, 5),
-(2, 'Banay-banay', 'Visitor', '09123456789', 'Ford Mustang', 'QWE145', 'BLUE', 1, 4),
-(3, 'Sto.Tomas', 'Supervisor', '09123456789', 'Toyota GR Supra', 'OMG888', 'GRAY', 2, 2),
-(4, 'Inosloban Lipa', 'Visitor', '09123456789', 'Bugatti Chiron', 'TOPG543', 'Orange', 4, 3),
-(5, 'Marawoy', 'Teacher', '09123456789', 'Ferrari F12', 'SHH111', 'Dark-red', 1, 2);
+INSERT INTO `carparking` (`Id_number`, `Address`, `Position`, `Contact_number`, `Car_model`, `Plate_number`, `Primary_color`, `empid`) VALUES
+(1, 'Lipa City', 'Teacher', '09123456789', 'SUZUKI', 'SECRET123', 'YELLOW', 3),
+(2, 'Banay-banay', 'Visitor', '09123456789', 'Ford Mustang', 'QWE145', 'BLUE', 1),
+(3, 'Sto.Tomas', 'Supervisor', '09123456789', 'Toyota GR Supra', 'OMG888', 'GRAY', 2),
+(4, 'Inosloban Lipa', 'Visitor', '09123456789', 'Bugatti Chiron', 'TOPG543', 'Orange', 4),
+(5, 'Marawoy', 'Teacher', '09123456789', 'Ferrari F12', 'SHH111', 'Dark-red', 1);
 
 -- --------------------------------------------------------
 
