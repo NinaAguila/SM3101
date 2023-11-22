@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 22, 2023 at 09:09 AM
+-- Generation Time: Nov 22, 2023 at 09:18 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS `employee_rgo` (
   `img` longblob NOT NULL,
   `pass` varchar(255) NOT NULL,
   `type` enum('staff','admin') NOT NULL,
+  PRIMARY KEY (`code`),
   KEY `empid` (`empid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -43,8 +44,8 @@ CREATE TABLE IF NOT EXISTS `employee_rgo` (
 --
 
 INSERT INTO `employee_rgo` (`empid`, `code`, `email`, `img`, `pass`, `type`) VALUES
-(3, '123123', 'brawn@gmail.com', '', '123123', 'staff'),
-(2, '1122', 'james@gmail.com', '', '123123', 'admin');
+(2, '1122', 'james@gmail.com', '', '123123', 'admin'),
+(3, '123123', 'brawn@gmail.com', '', '123123', 'staff');
 
 -- --------------------------------------------------------
 
@@ -125,6 +126,7 @@ CREATE TABLE IF NOT EXISTS `student_rgo` (
   `code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `img` mediumblob NOT NULL,
   `pass` varchar(255) NOT NULL,
+  PRIMARY KEY (`code`),
   KEY `studid` (`studid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
