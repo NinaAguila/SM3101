@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 22, 2023 at 10:52 AM
+-- Generation Time: Nov 23, 2023 at 08:19 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -24,41 +24,40 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `student`
+-- Table structure for table `patient`
 --
 
-DROP TABLE IF EXISTS `student`;
-CREATE TABLE IF NOT EXISTS `student` (
+DROP TABLE IF EXISTS `patient`;
+CREATE TABLE IF NOT EXISTS `patient` (
   `ID` int NOT NULL AUTO_INCREMENT,
-  `incharge` varchar(255) NOT NULL,
-  `SRCODE` varchar(255) DEFAULT NULL,
   `CONTACT` varchar(50) DEFAULT NULL,
   `SYMPTOM` varchar(50) DEFAULT NULL,
   `PRESCRIPTION` varchar(255) DEFAULT NULL,
   `DATE` date NOT NULL,
   `empid` int DEFAULT NULL,
   `studid` int DEFAULT NULL,
+  `incharge_id` int DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `empid` (`empid`),
-  KEY `studid` (`studid`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `studid` (`studid`),
+  KEY `incharge_id` (`incharge_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `student`
+-- Dumping data for table `patient`
 --
 
-INSERT INTO `student` (`ID`, `incharge`, `SRCODE`, `CONTACT`, `SYMPTOM`, `PRESCRIPTION`, `DATE`, `empid`, `studid`) VALUES
-(1, '', '21-76748', '098762487', 'headache', 'biogesic', '2023-11-22', NULL, NULL),
-(2, '', '21-76748', '0987654', 'headache', 'biogesic', '2023-11-23', NULL, NULL),
-(3, '', '21-35462', '0908087709', 'lagnat', 'bidesic', '2023-11-01', 1, 1),
-(5, '', '21-3241', '012312411241', 'flu', 'bioflu', '2023-11-01', 1, 2),
-(6, '', '21-3241', '012312411241', 'flu', 'bioflu', '2023-11-01', 1, 2),
-(7, '', '21-3413', '0912432452', 'asthma', 'asthmaline', '2023-11-01', 3, 3),
-(8, '', '21-3413', '0912432452', 'asthma', 'asthmaline', '2023-11-01', 3, 3),
-(9, '', '21-12345', '09912345123', 'flu', 'biogesic', '2023-11-01', 1, 4),
-(10, '', '21-14512', '09084124433', 'Flu', 'Bioflu', '2023-11-08', 5, 5),
-(11, '', '21-12345', '09912345123', 'flu', 'biogesic', '2023-11-01', 1, 4),
-(12, '', '21-14512', '09084124433', 'Flu', 'Bioflu', '2023-11-08', 5, 5);
+INSERT INTO `patient` (`ID`, `CONTACT`, `SYMPTOM`, `PRESCRIPTION`, `DATE`, `empid`, `studid`, `incharge_id`) VALUES
+(1, '0912432452', 'flu', 'Biogesic', '2023-11-01', 1, 0, 1),
+(2, '09912345123', 'asthma', 'Rest', '2023-11-02', 0, 1, 2),
+(3, '09912345123', 'lagnat', 'Biogesic', '2023-11-03', 2, 0, 3),
+(4, '09084124433', 'Headache', 'Biogesic', '2023-11-08', 0, 2, 1),
+(5, '0912432452', 'Sore Eyes', 'Go Home', '2023-11-09', 3, 0, 2),
+(6, '09084124433', 'Flu', 'Bioflu', '2023-11-11', 0, 3, 4),
+(7, '0908087709', 'Rashes', 'Ointment', '2023-11-11', 4, 0, 3),
+(8, '09084124433', 'Flu', 'Biogesic', '0000-00-00', 0, 4, 2),
+(9, '0908087709', 'lagnat', 'Rest', '2023-11-13', 0, 5, 3),
+(10, '09084124433', 'Headache', 'Biogesic', '2023-11-14', 5, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -85,11 +84,35 @@ INSERT INTO `tbempinfo` (`empid`, `lastname`, `firstname`, `department`) VALUES
 (3, 'mendoza', 'paul', 'cas'),
 (4, 'dimaandal', 'roy', 'cics'),
 (5, 'esperanza', 'shane', 'cabe'),
-(6, 'esperanza', 'shane', 'cabe'),
+(6, 'Trafalgar', 'Law', 'cabe'),
 (7, 'macalintal', 'kyla', 'cics'),
 (8, 'venerable', 'mike', 'cics'),
 (9, 'tenoso', 'chrizelle', 'cics'),
 (10, 'aranas', 'kyhel', 'cabe');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbincharge`
+--
+
+DROP TABLE IF EXISTS `tbincharge`;
+CREATE TABLE IF NOT EXISTS `tbincharge` (
+  `incharge_id` int NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  PRIMARY KEY (`incharge_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `tbincharge`
+--
+
+INSERT INTO `tbincharge` (`incharge_id`, `firstname`, `lastname`) VALUES
+(1, 'Coleen', 'Reyes'),
+(2, 'Michael', 'Jackson'),
+(3, 'Bob', 'Sheinder'),
+(4, 'Ben', 'Clark');
 
 -- --------------------------------------------------------
 
@@ -133,17 +156,20 @@ CREATE TABLE IF NOT EXISTS `tbusers` (
   `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `empid` int DEFAULT NULL,
+  `incharge_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `empid` (`empid`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `incharge_id` (`incharge_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tbusers`
 --
 
-INSERT INTO `tbusers` (`id`, `username`, `password`, `empid`) VALUES
-(1, 'Aguila_Nina', 'password', 1);
+INSERT INTO `tbusers` (`id`, `username`, `password`, `incharge_id`) VALUES
+(1, 'coleen', '123', 1),
+(2, 'Michael_J', '345', 2),
+(3, 'Bob_S.', '222', 3),
+(4, 'Ben_Clark', '6678', 4);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
