@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 22, 2023 at 10:01 AM
+-- Generation Time: Nov 23, 2023 at 12:49 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -33,14 +33,14 @@ CREATE TABLE IF NOT EXISTS `admin_tbl` (
   `empid` int NOT NULL,
   PRIMARY KEY (`admin_id`),
   KEY `empid` (`empid`)
-) ENGINE=MyISAM AUTO_INCREMENT=502 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `admin_tbl`
 --
 
 INSERT INTO `admin_tbl` (`admin_id`, `empid`) VALUES
-(501, 101);
+(1, 2);
 
 -- --------------------------------------------------------
 
@@ -51,11 +51,11 @@ INSERT INTO `admin_tbl` (`admin_id`, `empid`) VALUES
 DROP TABLE IF EXISTS `category`;
 CREATE TABLE IF NOT EXISTS `category` (
   `category_id` int NOT NULL AUTO_INCREMENT,
-  `categoryName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `categoryDescription` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `categoryName` varchar(255) NOT NULL,
+  `categoryDescription` varchar(255) NOT NULL,
   `creationDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`category_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `category`
@@ -79,12 +79,12 @@ DROP TABLE IF EXISTS `complaint_remark`;
 CREATE TABLE IF NOT EXISTS `complaint_remark` (
   `complaint_id` int NOT NULL AUTO_INCREMENT,
   `complaintNumber` int NOT NULL,
-  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `remark` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `remark` mediumtext NOT NULL,
   `remarkDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`complaint_id`),
   KEY `complaintNumber` (`complaintNumber`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `complaint_remark`
@@ -92,13 +92,9 @@ CREATE TABLE IF NOT EXISTS `complaint_remark` (
 
 INSERT INTO `complaint_remark` (`complaint_id`, `complaintNumber`, `status`, `remark`, `remarkDate`) VALUES
 (1, 1, 'pending', 'pending', '2023-10-25 00:23:14'),
-(3, 1, 'ongoing', 'still processing', '2023-10-25 01:43:32'),
-(4, 2, 'resolved', 'closed', '2023-10-25 01:43:32'),
-(5, 4, 'pending', 'processing', '2023-10-25 01:43:32'),
-(6, 4, 'resolved', 'closed', '2023-10-25 01:43:32'),
-(7, 1, 'ongoing', 'processing', '2023-10-25 01:43:32'),
-(9, 8, 'resolved', 'closed', '2023-10-25 01:43:32'),
-(11, 2, 'ongoing', 'processing', '2023-10-25 01:43:32');
+(2, 2, 'Closed', 'Complaint has been resolved', '2023-11-23 12:46:51'),
+(3, 3, 'In Process', 'complaint is in process', '2023-11-23 12:46:51'),
+(4, 4, '', 'complaint is Pending', '2023-11-23 12:46:51');
 
 -- --------------------------------------------------------
 
@@ -120,18 +116,17 @@ CREATE TABLE IF NOT EXISTS `tablecomplaints` (
   PRIMARY KEY (`complaintNumber`),
   KEY `sr-code` (`sr-code`),
   KEY `category_id` (`category_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tablecomplaints`
 --
 
 INSERT INTO `tablecomplaints` (`complaintNumber`, `sr-code`, `category_id`, `complaintName`, `complaintDetails`, `complaintFile`, `regDate`, `status`, `lastUpdationDate`) VALUES
-(1, 1001, 1, 'Plagiarism', 'Someone cheated.', '', '2023-11-21 16:29:56', '', '0000-00-00 00:00:00'),
-(2, 1001, 1, 'Cheating', 'Someone is cheating during exam.', '', '2023-11-21 16:30:10', '', '0000-00-00 00:00:00'),
-(12, 1003, 5, 'Dishonesty', 'saw someone using phone during exam', '', '2023-11-21 16:30:24', '', '0000-00-00 00:00:00'),
-(7, 1004, 4, 'Humiliation', 'The teacher makes an embarrassing comment about me', '', '2023-11-21 16:30:37', '', '0000-00-00 00:00:00'),
-(13, 1, 3, 'Complaint For Student', 'hello, testing po, hehe', '', '2023-11-21 17:50:15', NULL, '0000-00-00 00:00:00');
+(1, 1, 5, 'Complaint for Student', 'The students are lying', 'db_sm3101.sql', '2023-11-23 12:41:40', NULL, '0000-00-00 00:00:00'),
+(2, 1, 3, 'Complaint for Student', 'caught someone cheating while answering an exam', '', '2023-11-23 12:42:05', NULL, '0000-00-00 00:00:00'),
+(3, 3, 3, 'Complaint for Student', 'someone is using phone during exam', 'db_sm3101.sql', '2023-11-23 12:43:15', NULL, '0000-00-00 00:00:00'),
+(4, 3, 4, 'Complaint for Teachers', 'the teacher humiliated me infront of other teachers', '', '2023-11-23 12:44:03', NULL, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -143,20 +138,25 @@ DROP TABLE IF EXISTS `tbempcontact`;
 CREATE TABLE IF NOT EXISTS `tbempcontact` (
   `id` int NOT NULL AUTO_INCREMENT,
   `empid` int NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `contact_no` bigint NOT NULL,
-  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `address` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `empid` (`empid`)
-) ENGINE=MyISAM AUTO_INCREMENT=902 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tbempcontact`
 --
 
 INSERT INTO `tbempcontact` (`id`, `empid`, `password`, `email`, `contact_no`, `address`) VALUES
-(901, 101, 'staff', 'balazon@gmail.com', 9123456789, 'Lipa City, Batangas');
+(1, 2, '1253208465b1efa876f982d8a9e73eef', 'balazon@gmail.com', 9123456789, 'Lipa City, Batangas'),
+(2, 1, 'nina', 'nina@gmail.com', 9123456789, 'Batangas'),
+(3, 3, 'sulit', 'sulit@gmail.com', 9123456789, 'Batangas'),
+(4, 4, 'angeline', 'angeline@gmail.com', 9123456789, 'Batangas'),
+(5, 5, 'dionne', 'dionne@gmail.com', 9123456789, 'Batangas'),
+(6, 6, 'jonah', 'jonah@gmail.com', 9123456789, 'Batngas');
 
 -- --------------------------------------------------------
 
@@ -167,11 +167,11 @@ INSERT INTO `tbempcontact` (`id`, `empid`, `password`, `email`, `contact_no`, `a
 DROP TABLE IF EXISTS `tbempinfo`;
 CREATE TABLE IF NOT EXISTS `tbempinfo` (
   `empid` int NOT NULL AUTO_INCREMENT,
-  `lastname` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `firstname` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `department` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `lastname` varchar(25) NOT NULL,
+  `firstname` varchar(25) NOT NULL,
+  `department` varchar(20) NOT NULL,
   PRIMARY KEY (`empid`)
-) ENGINE=MyISAM AUTO_INCREMENT=102 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tbempinfo`
@@ -179,7 +179,11 @@ CREATE TABLE IF NOT EXISTS `tbempinfo` (
 
 INSERT INTO `tbempinfo` (`empid`, `lastname`, `firstname`, `department`) VALUES
 (1, 'aguila', 'nina', 'cics'),
-(101, 'Balazon', 'Francis', 'CICS');
+(2, 'Balazon', 'Francis', 'CICS'),
+(3, 'Sulit', 'Richelle', 'CICS'),
+(4, 'Libunao', 'Angeline', 'CICS'),
+(5, 'Alimoren', 'Dionne', 'CICS'),
+(6, 'Melo', 'Jonah', 'CICS');
 
 -- --------------------------------------------------------
 
@@ -191,20 +195,24 @@ DROP TABLE IF EXISTS `tbstudcontact`;
 CREATE TABLE IF NOT EXISTS `tbstudcontact` (
   `id` int NOT NULL AUTO_INCREMENT,
   `studid` int NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `contact_no` bigint NOT NULL,
-  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `address` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `studid` (`studid`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tbstudcontact`
 --
 
 INSERT INTO `tbstudcontact` (`id`, `studid`, `password`, `email`, `contact_no`, `address`) VALUES
-(1, 1001, '10c7ccc7a4f0aff03c915c485565b9da', 'ryan@gmail.com', 9123456789, 'Cuenca, Batangas');
+(1, 3, '10c7ccc7a4f0aff03c915c485565b9da', 'ryan@gmail.com', 9123456789, 'Cuenca, Batangas'),
+(2, 4, 'evers', 'evers@gmail.com', 9123456789, 'Lipa City'),
+(3, 5, 'ebe6941ee8a10c14dc933ae37a0f43fc', 'jenny@gmail.com', 9123456789, 'Santa Terisita'),
+(4, 6, 'jella', 'jella@gmail.com', 9123456789, 'Lipa City'),
+(5, 7, 'eka', 'erika@gmail.com', 9123456789, 'Quezon');
 
 -- --------------------------------------------------------
 
@@ -215,11 +223,11 @@ INSERT INTO `tbstudcontact` (`id`, `studid`, `password`, `email`, `contact_no`, 
 DROP TABLE IF EXISTS `tbstudinfo`;
 CREATE TABLE IF NOT EXISTS `tbstudinfo` (
   `studid` int NOT NULL AUTO_INCREMENT,
-  `lastname` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `firstname` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `course` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `lastname` varchar(25) NOT NULL,
+  `firstname` varchar(25) NOT NULL,
+  `course` varchar(20) NOT NULL,
   PRIMARY KEY (`studid`)
-) ENGINE=MyISAM AUTO_INCREMENT=1006 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tbstudinfo`
@@ -228,11 +236,11 @@ CREATE TABLE IF NOT EXISTS `tbstudinfo` (
 INSERT INTO `tbstudinfo` (`studid`, `lastname`, `firstname`, `course`) VALUES
 (1, 'parker', 'peter', 'bsit'),
 (2, 'kent', 'clark', 'bscs'),
-(1001, 'Ramos', 'Ryan Ceasar', 'BSIT'),
-(1002, 'Magnaye', 'Erika', 'BSIT'),
-(1003, 'Gabuya', 'Jenny Mae', 'BSIT'),
-(1004, 'Peloramas', 'Jelladane', 'BSIT'),
-(1005, 'Dimaculangan', 'Everson', 'BSIT');
+(3, 'Ramos', 'Ryan', 'BSIT'),
+(4, 'Dimaculangan', 'Everson', 'BSIT'),
+(5, 'Gabuya', 'Jenny Mae', 'BSIT'),
+(6, 'Peloramas', 'Jelladane', 'BSIT'),
+(7, 'Magnaye', 'Erika', 'BSIT');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
