@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 23, 2023 at 08:19 AM
+-- Generation Time: Nov 23, 2023 at 08:51 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -99,20 +99,26 @@ INSERT INTO `tbempinfo` (`empid`, `lastname`, `firstname`, `department`) VALUES
 DROP TABLE IF EXISTS `tbincharge`;
 CREATE TABLE IF NOT EXISTS `tbincharge` (
   `incharge_id` int NOT NULL AUTO_INCREMENT,
-  `firstname` varchar(255) NOT NULL,
-  `lastname` varchar(255) NOT NULL,
-  PRIMARY KEY (`incharge_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `empid` int DEFAULT NULL,
+  PRIMARY KEY (`incharge_id`),
+  KEY `empid` (`empid`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tbincharge`
 --
 
-INSERT INTO `tbincharge` (`incharge_id`, `firstname`, `lastname`) VALUES
-(1, 'Coleen', 'Reyes'),
-(2, 'Michael', 'Jackson'),
-(3, 'Bob', 'Sheinder'),
-(4, 'Ben', 'Clark');
+INSERT INTO `tbincharge` (`incharge_id`, `empid`) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10);
 
 -- --------------------------------------------------------
 
@@ -166,10 +172,10 @@ CREATE TABLE IF NOT EXISTS `tbusers` (
 --
 
 INSERT INTO `tbusers` (`id`, `username`, `password`, `incharge_id`) VALUES
-(1, 'coleen', '123', 1),
-(2, 'Michael_J', '345', 2),
-(3, 'Bob_S.', '222', 3),
-(4, 'Ben_Clark', '6678', 4);
+(1, 'aguila', '123', 1),
+(2, 'dimaala', '345', 2),
+(3, 'mendoza', '222', 3),
+(4, 'dimaandal', '6678', 4);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
