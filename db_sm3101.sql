@@ -127,11 +127,11 @@ CREATE TABLE IF NOT EXISTS `tablecomplaints` (
 --
 
 INSERT INTO `tablecomplaints` (`complaintNumber`, `sr-code`, `category_id`, `complaintName`, `complaintDetails`, `complaintFile`, `regDate`, `status`, `lastUpdationDate`) VALUES
-(1, 1001, 1, 'Plagiarism', 'Someone cheated.', '', '2023-11-21 16:29:56', '', '0000-00-00 00:00:00'),
-(2, 1001, 1, 'Cheating', 'Someone is cheating during exam.', '', '2023-11-21 16:30:10', '', '0000-00-00 00:00:00'),
-(12, 1003, 5, 'Dishonesty', 'saw someone using phone during exam', '', '2023-11-21 16:30:24', '', '0000-00-00 00:00:00'),
-(7, 1004, 4, 'Humiliation', 'The teacher makes an embarrassing comment about me', '', '2023-11-21 16:30:37', '', '0000-00-00 00:00:00'),
-(13, 1, 3, 'Complaint For Student', 'hello, testing po, hehe', '', '2023-11-21 17:50:15', NULL, '0000-00-00 00:00:00');
+(1, 2, 1, 'Plagiarism', 'Someone cheated.', '', '2023-11-21 16:29:56', '', '0000-00-00 00:00:00'),
+(2, 3, 1, 'Cheating', 'Someone is cheating during exam.', '', '2023-11-21 16:30:10', '', '0000-00-00 00:00:00'),
+(12, 4, 5, 'Dishonesty', 'saw someone using phone during exam', '', '2023-11-21 16:30:24', '', '0000-00-00 00:00:00'),
+(7, 5, 4, 'Humiliation', 'The teacher makes an embarrassing comment about me', '', '2023-11-21 16:30:37', '', '0000-00-00 00:00:00'),
+(13, 6, 3, 'Complaint For Student', 'hello, testing po, hehe', '', '2023-11-21 17:50:15', NULL, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -171,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `tbempinfo` (
   `firstname` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `department` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`empid`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbempinfo`
@@ -179,7 +179,7 @@ CREATE TABLE IF NOT EXISTS `tbempinfo` (
 
 INSERT INTO `tbempinfo` (`empid`, `lastname`, `firstname`, `department`) VALUES
 (1, 'aguila', 'nina', 'cics'),
-(2, 'Balazon', 'Francis', 'CICS');
+(6, 'Balazon', 'Francis', 'CICS');
 
 -- --------------------------------------------------------
 
@@ -219,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `tbstudinfo` (
   `firstname` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `course` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`studid`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbstudinfo`
@@ -228,11 +228,11 @@ CREATE TABLE IF NOT EXISTS `tbstudinfo` (
 INSERT INTO `tbstudinfo` (`studid`, `lastname`, `firstname`, `course`) VALUES
 (1, 'parker', 'peter', 'bsit'),
 (2, 'kent', 'clark', 'bscs'),
-(3, 'Ramos', 'Ryan Ceasar', 'BSIT'),
-(4, 'Magnaye', 'Erika', 'BSIT'),
-(5, 'Gabuya', 'Jenny Mae', 'BSIT'),
-(6, 'Peloramas', 'Jelladane', 'BSIT'),
-(7, 'Dimaculangan', 'Everson', 'BSIT');
+(16, 'Ramos', 'Ryan Ceasar', 'BSIT'),
+(17, 'Magnaye', 'Erika', 'BSIT'),
+(18, 'Gabuya', 'Jenny Mae', 'BSIT'),
+(19, 'Peloramas', 'Jelladane', 'BSIT'),
+(20, 'Dimaculangan', 'Everson', 'BSIT');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
@@ -281,7 +281,7 @@ CREATE TABLE IF NOT EXISTS `admin_tbl` (
 --
 
 INSERT INTO `admin_tbl` (`admin_id`, `empid`) VALUES
-(501, 101);
+(501, 6);
 
 -- --------------------------------------------------------
 
@@ -368,11 +368,11 @@ CREATE TABLE IF NOT EXISTS `tablecomplaints` (
 --
 
 INSERT INTO `tablecomplaints` (`complaintNumber`, `sr-code`, `category_id`, `complaintName`, `complaintDetails`, `complaintFile`, `regDate`, `status`, `lastUpdationDate`) VALUES
-(1, 1001, 1, 'Plagiarism', 'Someone cheated.', '', '2023-11-21 16:29:56', '', '0000-00-00 00:00:00'),
-(2, 1001, 1, 'Cheating', 'Someone is cheating during exam.', '', '2023-11-21 16:30:10', '', '0000-00-00 00:00:00'),
-(12, 1003, 5, 'Dishonesty', 'saw someone using phone during exam', '', '2023-11-21 16:30:24', '', '0000-00-00 00:00:00'),
-(7, 1004, 4, 'Humiliation', 'The teacher makes an embarrassing comment about me', '', '2023-11-21 16:30:37', '', '0000-00-00 00:00:00'),
-(13, 1, 3, 'Complaint For Student', 'hello, testing po, hehe', '', '2023-11-21 17:50:15', NULL, '0000-00-00 00:00:00');
+(1, 6, 1, 'Plagiarism', 'Someone cheated.', '', '2023-11-21 16:29:56', '', '0000-00-00 00:00:00'),
+(2, 7, 1, 'Cheating', 'Someone is cheating during exam.', '', '2023-11-21 16:30:10', '', '0000-00-00 00:00:00'),
+(12, 8, 5, 'Dishonesty', 'saw someone using phone during exam', '', '2023-11-21 16:30:24', '', '0000-00-00 00:00:00'),
+(7, 9, 4, 'Humiliation', 'The teacher makes an embarrassing comment about me', '', '2023-11-21 16:30:37', '', '0000-00-00 00:00:00'),
+(13, 10, 3, 'Complaint For Student', 'hello, testing po, hehe', '', '2023-11-21 17:50:15', NULL, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -446,7 +446,7 @@ CREATE TABLE IF NOT EXISTS `tbempcontact` (
 --
 
 INSERT INTO `tbempcontact` (`id`, `empid`, `password`, `email`, `contact_no`, `address`) VALUES
-(901, 101, 'staff', 'balazon@gmail.com', 9123456789, 'Lipa City, Batangas');
+(901, 6, 'staff', 'balazon@gmail.com', 9123456789, 'Lipa City, Batangas');
 
 -- --------------------------------------------------------
 
@@ -569,7 +569,7 @@ CREATE TABLE IF NOT EXISTS `tbstudcontact` (
 --
 
 INSERT INTO `tbstudcontact` (`id`, `studid`, `password`, `email`, `contact_no`, `address`) VALUES
-(1, 1001, '10c7ccc7a4f0aff03c915c485565b9da', 'ryan@gmail.com', 9123456789, 'Cuenca, Batangas');
+(1, 16, '10c7ccc7a4f0aff03c915c485565b9da', 'ryan@gmail.com', 9123456789, 'Cuenca, Batangas');
 
 -- --------------------------------------------------------
 
@@ -1101,3 +1101,5 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
