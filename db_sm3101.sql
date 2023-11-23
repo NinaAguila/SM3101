@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 23, 2023 at 09:25 AM
+-- Generation Time: Nov 23, 2023 at 10:02 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -173,6 +173,7 @@ INSERT INTO `tblslots` (`Plate_number`, `Slot_number`, `Date_`, `Time_in`, `Time
 DROP TABLE IF EXISTS `tblusers`;
 CREATE TABLE IF NOT EXISTS `tblusers` (
   `user_Id` int NOT NULL,
+  `empid` int NOT NULL,
   `user_name` varchar(50) DEFAULT NULL,
   `user_pass` varchar(50) DEFAULT NULL,
   `user_position` varchar(50) DEFAULT NULL,
@@ -183,9 +184,9 @@ CREATE TABLE IF NOT EXISTS `tblusers` (
 -- Dumping data for table `tblusers`
 --
 
-INSERT INTO `tblusers` (`user_Id`, `user_name`, `user_pass`, `user_position`) VALUES
-(1, 'Admin', 'ADMIN123', 'HEAD'),
-(2, 'Guard', 'GUARD123', 'Guard');
+INSERT INTO `tblusers` (`user_Id`, `empid`, `user_name`, `user_pass`, `user_position`) VALUES
+(1, 7, 'Admin', 'ADMIN123', 'HEAD'),
+(2, 8, 'Guard', 'GUARD123', 'Guard');
 
 -- --------------------------------------------------------
 
