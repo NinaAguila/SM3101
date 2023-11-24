@@ -257,26 +257,6 @@ ALTER TABLE `student_rgo`
   ADD CONSTRAINT `student_rgo_ibfk_1` FOREIGN KEY (`studid`) REFERENCES `tbstudinfo` (`studid`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
-DROP TABLE IF EXISTS `employee_rgo`;
-CREATE TABLE IF NOT EXISTS `employee_rgo` (
-  `empid` int NOT NULL,
-  `code` varchar(255) NOT NULL,
-  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `img` longblob NOT NULL,
-  `pass` varchar(255) NOT NULL,
-  `type` enum('staff','admin') NOT NULL,
-  PRIMARY KEY (`code`),
-  KEY `empid` (`empid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `employee_rgo`
---
-
-INSERT INTO `employee_rgo` (`empid`, `code`, `email`, `img`, `pass`, `type`) VALUES
-(2, '1122', 'james@gmail.com', '', '123123', 'admin'),
-(3, '123123', 'brawn@gmail.com', '', '123123', 'staff');
-
 -- --------------------------------------------------------
 
 --
