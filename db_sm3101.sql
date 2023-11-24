@@ -225,14 +225,15 @@ COMMIT;
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Nov 23, 2023 at 08:51 AM
--- Server version: 8.0.31
--- PHP Version: 8.0.26
+-- Host: 127.0.0.1
+-- Generation Time: Nov 24, 2023 at 07:47 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -246,40 +247,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `patient`
+-- Table structure for table `tbcomplogs`
 --
 
-DROP TABLE IF EXISTS `patient`;
-CREATE TABLE IF NOT EXISTS `patient` (
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `CONTACT` varchar(50) DEFAULT NULL,
-  `SYMPTOM` varchar(50) DEFAULT NULL,
-  `PRESCRIPTION` varchar(255) DEFAULT NULL,
-  `DATE` date NOT NULL,
-  `empid` int DEFAULT NULL,
-  `studid` int DEFAULT NULL,
-  `incharge_id` int DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `empid` (`empid`),
-  KEY `studid` (`studid`),
-  KEY `incharge_id` (`incharge_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `tbcomplogs` (
+  `log_id` int(11) NOT NULL,
+  `sr_code` int(10) NOT NULL,
+  `firstname` varchar(25) NOT NULL,
+  `lastname` varchar(25) NOT NULL,
+  `course` varchar(20) NOT NULL,
+  `section` varchar(20) NOT NULL,
+  `timein` time NOT NULL,
+  `logdate` date NOT NULL,
+  `ipaddress` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `patient`
+-- Dumping data for table `tbcomplogs`
 --
 
-INSERT INTO `patient` (`ID`, `CONTACT`, `SYMPTOM`, `PRESCRIPTION`, `DATE`, `empid`, `studid`, `incharge_id`) VALUES
-(1, '0912432452', 'flu', 'Biogesic', '2023-11-01', 1, 0, 1),
-(2, '09912345123', 'asthma', 'Rest', '2023-11-02', 0, 1, 2),
-(3, '09912345123', 'lagnat', 'Biogesic', '2023-11-03', 2, 0, 3),
-(4, '09084124433', 'Headache', 'Biogesic', '2023-11-08', 0, 2, 1),
-(5, '0912432452', 'Sore Eyes', 'Go Home', '2023-11-09', 3, 0, 2),
-(6, '09084124433', 'Flu', 'Bioflu', '2023-11-11', 0, 3, 4),
-(7, '0908087709', 'Rashes', 'Ointment', '2023-11-11', 4, 0, 3),
-(8, '09084124433', 'Flu', 'Biogesic', '0000-00-00', 0, 4, 2),
-(9, '0908087709', 'lagnat', 'Rest', '2023-11-13', 0, 5, 3),
-(10, '09084124433', 'Headache', 'Biogesic', '2023-11-14', 5, 0, 1);
+INSERT INTO `tbcomplogs` (`log_id`, `sr_code`, `firstname`, `lastname`, `course`, `section`, `timein`, `logdate`, `ipaddress`) VALUES
+(1, 2138415, 'mike rhon vincent', 'venerable', 'BSIT', 'SM-3101', '17:21:22', '2023-11-23', '192.168.1.19'),
+(2, 2133771, 'kyla', 'macalintal', 'BSIT', 'SM-3101', '15:23:22', '2023-11-20', '192.168.1.21'),
+(3, 2139770, 'michael jericho', 'torres', 'BSIT', 'SM-3101', '15:19:22', '2023-11-18', '192.168.1.18'),
+(4, 2135125, 'chrizelle marie', 'tenoso', 'BSIT', 'SM-3101', '17:21:22', '2023-11-23', '192.168.1.13');
 
 -- --------------------------------------------------------
 
@@ -287,60 +278,65 @@ INSERT INTO `patient` (`ID`, `CONTACT`, `SYMPTOM`, `PRESCRIPTION`, `DATE`, `empi
 -- Table structure for table `tbempinfo`
 --
 
-DROP TABLE IF EXISTS `tbempinfo`;
-CREATE TABLE IF NOT EXISTS `tbempinfo` (
-  `empid` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbempinfo` (
+  `empid` int(11) NOT NULL,
   `lastname` varchar(25) NOT NULL,
   `firstname` varchar(25) NOT NULL,
-  `department` varchar(20) NOT NULL,
-  PRIMARY KEY (`empid`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `department` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbempinfo`
 --
 
 INSERT INTO `tbempinfo` (`empid`, `lastname`, `firstname`, `department`) VALUES
-(1, 'aguila', 'nina', 'cics'),
-(2, 'dimaala', 'ayen', 'cabe'),
-(3, 'mendoza', 'paul', 'cas'),
-(4, 'dimaandal', 'roy', 'cics'),
-(5, 'esperanza', 'shane', 'cabe'),
-(6, 'Trafalgar', 'Law', 'cabe'),
-(7, 'macalintal', 'kyla', 'cics'),
-(8, 'venerable', 'mike', 'cics'),
-(9, 'tenoso', 'chrizelle', 'cics'),
-(10, 'aranas', 'kyhel', 'cabe');
+(1, 'aguila', 'nina', 'CICS'),
+(2, 'sulit', 'richelle', 'CICS');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbincharge`
+-- Table structure for table `tbemployee`
 --
 
-DROP TABLE IF EXISTS `tbincharge`;
-CREATE TABLE IF NOT EXISTS `tbincharge` (
-  `incharge_id` int NOT NULL AUTO_INCREMENT,
-  `empid` int DEFAULT NULL,
-  PRIMARY KEY (`incharge_id`),
-  KEY `empid` (`empid`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `tbemployee` (
+  `empid` int(11) NOT NULL,
+  `username` varchar(25) NOT NULL,
+  `email` varchar(25) NOT NULL,
+  `contact` int(11) NOT NULL,
+  `password` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbincharge`
+-- Dumping data for table `tbemployee`
 --
 
-INSERT INTO `tbincharge` (`incharge_id`, `empid`) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6),
-(7, 7),
-(8, 8),
-(9, 9),
-(10, 10);
+INSERT INTO `tbemployee` (`empid`, `username`, `email`, `contact`, `password`) VALUES
+(1, 'nina123', 'ninaaguila@gmail.com', 912345678, 'aguila123'),
+(2, 'richelle123', 'richellesulit@gmail.com', 912345677, 'sulit123');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbstudent`
+--
+
+CREATE TABLE `tbstudent` (
+  `studid` int(11) NOT NULL,
+  `srcode` int(10) NOT NULL,
+  `section` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbstudent`
+--
+
+INSERT INTO `tbstudent` (`studid`, `srcode`, `section`, `password`) VALUES
+(1, 2138415, 'SM-3101', 'venerable123'),
+(2, 2133771, 'SM-3101', 'macalintal123'),
+(3, 2139770, 'SM-3101', 'torres123'),
+(4, 2135125, 'SM-3101', 'tenoso123');
 
 -- --------------------------------------------------------
 
@@ -348,57 +344,94 @@ INSERT INTO `tbincharge` (`incharge_id`, `empid`) VALUES
 -- Table structure for table `tbstudinfo`
 --
 
-DROP TABLE IF EXISTS `tbstudinfo`;
-CREATE TABLE IF NOT EXISTS `tbstudinfo` (
-  `studid` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tbstudinfo` (
+  `studid` int(11) NOT NULL,
   `lastname` varchar(25) NOT NULL,
   `firstname` varchar(25) NOT NULL,
-  `course` varchar(20) NOT NULL,
-  PRIMARY KEY (`studid`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `course` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbstudinfo`
 --
 
 INSERT INTO `tbstudinfo` (`studid`, `lastname`, `firstname`, `course`) VALUES
-(1, 'parker', 'peter', 'bsit'),
-(2, 'kent', 'clark', 'bscs'),
-(3, 'dimaala', 'ayen', 'bssc'),
-(4, 'de jesus', 'paulo', 'bsit'),
-(5, 'alip', 'ella', 'bsit'),
-(6, 'tipan', 'allen', 'bsit'),
-(7, 'dimaala', 'ayen', 'bssc'),
-(8, 'matibag', 'chris', 'bpa'),
-(9, 'maranan', 'carl', 'bpa'),
-(10, 'sabilio', 'erik', 'bsit');
-
--- --------------------------------------------------------
+(1, 'venerable', 'mike rhon vincent', 'BSIT'),
+(2, 'macalintal', 'kyla', 'BSIT'),
+(3, 'torres', 'michael jericho', 'BSIT'),
+(4, 'tenoso', 'chrizelle marie', 'BSIT');
 
 --
--- Table structure for table `tbusers`
+-- Indexes for dumped tables
 --
 
-DROP TABLE IF EXISTS `tbusers`;
-CREATE TABLE IF NOT EXISTS `tbusers` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `incharge_id` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `incharge_id` (`incharge_id`),
-  CONSTRAINT `fk_incharge_id` FOREIGN KEY (`incharge_id`) REFERENCES `tbincharge` (`incharge_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+--
+-- Indexes for table `tbcomplogs`
+--
+ALTER TABLE `tbcomplogs`
+  ADD PRIMARY KEY (`log_id`);
 
 --
--- Dumping data for table `tbusers`
+-- Indexes for table `tbempinfo`
+--
+ALTER TABLE `tbempinfo`
+  ADD PRIMARY KEY (`empid`);
+
+--
+-- Indexes for table `tbemployee`
+--
+ALTER TABLE `tbemployee`
+  ADD PRIMARY KEY (`empid`);
+
+--
+-- Indexes for table `tbstudent`
+--
+ALTER TABLE `tbstudent`
+  ADD PRIMARY KEY (`studid`);
+
+--
+-- Indexes for table `tbstudinfo`
+--
+ALTER TABLE `tbstudinfo`
+  ADD PRIMARY KEY (`studid`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
-INSERT INTO `tbusers` (`id`, `username`, `password`, `incharge_id`) VALUES
-(1, 'aguila', 'hashed_password_1', 1),
-(2, 'dimaala', 'hashed_password_2', 2),
-(3, 'mendoza', 'hashed_password_3', 3),
-(4, 'dimaandal', 'hashed_password_4', 4);
+--
+-- AUTO_INCREMENT for table `tbcomplogs`
+--
+ALTER TABLE `tbcomplogs`
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tbempinfo`
+--
+ALTER TABLE `tbempinfo`
+  MODIFY `empid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tbstudinfo`
+--
+ALTER TABLE `tbstudinfo`
+  MODIFY `studid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tbemployee`
+--
+ALTER TABLE `tbemployee`
+  ADD CONSTRAINT `tbemployee_ibfk_1` FOREIGN KEY (`empid`) REFERENCES `tbempinfo` (`empid`);
+
+--
+-- Constraints for table `tbstudent`
+--
+ALTER TABLE `tbstudent`
+  ADD CONSTRAINT `tbstudent_ibfk_1` FOREIGN KEY (`studid`) REFERENCES `tbstudinfo` (`studid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
