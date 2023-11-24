@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 21, 2023 at 10:30 AM
+-- Generation Time: Nov 24, 2023 at 05:57 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -60,11 +60,11 @@ INSERT INTO `tbempinfo` (`empid`, `lastname`, `firstname`, `department`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbfounditems`
+-- Table structure for table `tbitems`
 --
 
-DROP TABLE IF EXISTS `tbfounditems`;
-CREATE TABLE IF NOT EXISTS `tbfounditems` (
+DROP TABLE IF EXISTS `tbitems`;
+CREATE TABLE IF NOT EXISTS `tbitems` (
   `ItemID` int NOT NULL AUTO_INCREMENT,
   `ItemName` varchar(100) NOT NULL,
   `ItemDescription` text,
@@ -78,56 +78,15 @@ CREATE TABLE IF NOT EXISTS `tbfounditems` (
 ) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `tbfounditems`
+-- Dumping data for table `tbitems`
 --
 
-INSERT INTO `tbfounditems` (`ItemID`, `ItemName`, `ItemDescription`, `DateTime`, `Location`, `Status`, `Category`, `ReportedBy`, `Image`) VALUES
-(1, 'Found Laptop', 'Dell Inspiron laptop found in the library.', '2023-10-11 08:50:00', 'Library', 'Found', 'Electronics', 2, 'laptop.jpg'),
-(2, 'Found Wallet', 'Black leather wallet with cash and cards found near the cafeteria.', '2023-10-12 17:30:00', 'Cafeteria', 'Found', 'Wallets', 4, 'wallet.jpg'),
-(3, 'Found Earbuds', 'Wireless earbuds found on the bus.', '2023-10-13 10:15:00', 'Bus', 'Found', 'Electronics', 6, 'earbuds.jpg'),
-(4, 'Found Backpack', 'Green backpack with school supplies found in the gym.', '2023-10-14 14:00:00', 'Gym', 'Found', 'Bags', 7, 'backpack.jpg'),
-(5, 'Found Watch', 'Silver wristwatch found in the classroom.', '2023-10-15 12:45:00', 'Classroom 102', 'Found', 'Accessories', 8, 'watch.jpg'),
-(6, 'Found ID Card', 'University ID card found outside the administration office.', '2023-10-16 11:40:00', 'Administration Office', 'Found', 'ID Cards', 9, 'id_card.jpg'),
-(7, 'Found Phone', 'iPhone 11 found at the lecture hall.', '2023-10-17 09:20:00', 'Lecture Hall B', 'Found', 'Electronics', 10, 'phone.jpg'),
-(8, 'Found Keys', 'Set of car keys found at the parking lot.', '2023-10-18 16:55:00', 'Parking Lot', 'Found', 'Keys', 2, 'keys.jpg'),
-(9, 'Found Glasses', 'Prescription eyeglasses found in the library.', '2023-10-19 13:10:00', 'Library', 'Found', 'Accessories', 3, 'glasses.jpg'),
-(10, 'Found Umbrella', 'Red umbrella with a floral pattern found near the bus stop.', '2023-10-20 15:00:00', 'Bus Stop', 'Found', 'Accessories', 4, 'umbrella.jpg');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tblostitems`
---
-
-DROP TABLE IF EXISTS `tblostitems`;
-CREATE TABLE IF NOT EXISTS `tblostitems` (
-  `ItemID` int NOT NULL AUTO_INCREMENT,
-  `ItemName` varchar(100) NOT NULL,
-  `ItemDescription` text,
-  `DateTime` datetime DEFAULT NULL,
-  `Location` varchar(100) DEFAULT NULL,
-  `Status` enum('Lost','Found','Claimed') NOT NULL,
-  `Category` varchar(50) DEFAULT NULL,
-  `ReportedBy` int DEFAULT NULL,
-  `Image` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`ItemID`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `tblostitems`
---
-
-INSERT INTO `tblostitems` (`ItemID`, `ItemName`, `ItemDescription`, `DateTime`, `Location`, `Status`, `Category`, `ReportedBy`, `Image`) VALUES
+INSERT INTO `tbitems` (`ItemID`, `ItemName`, `ItemDescription`, `DateTime`, `Location`, `Status`, `Category`, `ReportedBy`, `Image`) VALUES
 (1, 'Lost Phone', 'Black smartphone with cracked screen.', '2023-10-01 10:30:00', 'Library', 'Lost', 'Electronics', 3, 'phone.jpg'),
 (2, 'Lost Backpack', 'Red backpack with textbooks and a laptop.', '2023-10-02 15:45:00', 'Cafeteria', 'Lost', 'Bags', 4, 'backpack.jpg'),
-(3, 'Lost Keys', 'Set of house and car keys.', '2023-10-03 08:15:00', 'Parking Lot', 'Lost', 'Keys', 5, 'keys.jpg'),
+(3, 'Lost Keys', 'Set of house and car keys.', '2023-10-03 08:15:00', 'Parking Lot', 'Found', 'Keys', 5, 'keys.jpg'),
 (4, 'Lost Wallet', 'Brown leather wallet with cash and ID.', '2023-10-04 17:20:00', 'Gym', 'Lost', 'Wallets', 6, 'wallet.jpg'),
-(5, 'Lost Umbrella', 'Blue umbrella with a pattern.', '2023-10-05 12:00:00', 'Bus Stop', 'Lost', 'Accessories', 7, 'umbrella.jpg'),
-(6, 'Lost Watch', 'Silver wristwatch with a black strap.', '2023-10-06 09:30:00', 'Classroom 101', 'Lost', 'Accessories', 8, 'watch.jpg'),
-(7, 'Lost Laptop', 'MacBook Pro 13-inch.', '2023-10-07 14:10:00', 'Library', 'Lost', 'Electronics', 9, 'laptop.jpg'),
-(8, 'Lost ID Card', 'University ID card with the name \"John Doe\".', '2023-10-08 11:05:00', 'Administration Office', 'Lost', 'ID Cards', 10, 'id_card.jpg'),
-(9, 'Lost Headphones', 'Wireless headphones with a case.', '2023-10-09 16:30:00', 'Cafeteria', 'Lost', 'Electronics', 3, 'headphones.jpg'),
-(10, 'Lost Glasses', 'Prescription eyeglasses in a black frame.', '2023-10-10 13:25:00', 'Lecture Hall A', 'Lost', 'Accessories', 4, 'glasses.jpg');
+(5, 'Umbrella', 'Blue umbrella with a pattern.', '2023-10-05 12:00:00', 'Bus Stop', 'Claimed', 'Accessories', 7, 'umbrella.jpg');
 
 -- --------------------------------------------------------
 
@@ -170,33 +129,31 @@ INSERT INTO `tbrecentactivities` (`ActivityID`, `ActivityType`, `UserID`, `ItemI
 DROP TABLE IF EXISTS `tbreports`;
 CREATE TABLE IF NOT EXISTS `tbreports` (
   `ReportID` int NOT NULL AUTO_INCREMENT,
-  `ReportName` varchar(100) NOT NULL,
+  `ReportName` varchar(255) DEFAULT NULL,
   `ReportDescription` text,
   `DateTime` datetime DEFAULT NULL,
-  `Location` varchar(100) DEFAULT NULL,
-  `Category` varchar(50) DEFAULT NULL,
-  `ReportedBy` int DEFAULT NULL,
+  `Location` varchar(255) DEFAULT NULL,
+  `Category` varchar(255) DEFAULT NULL,
+  `ReportedBy` varchar(255) DEFAULT NULL,
   `Image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ReportID`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tbreports`
 --
 
 INSERT INTO `tbreports` (`ReportID`, `ReportName`, `ReportDescription`, `DateTime`, `Location`, `Category`, `ReportedBy`, `Image`) VALUES
-(1, 'Report 1', 'This is the first test report.', '2023-10-22 14:30:00', 'Library', 'Test', 3, 'report1.jpg'),
-(2, 'Report 2', 'This is the second test report.', '2023-10-23 16:45:00', 'Cafeteria', 'Test', 4, 'report2.jpg'),
-(3, 'Report 3', 'This is the third test report.', '2023-10-24 11:20:00', 'Parking Lot', 'Test', 5, 'report3.jpg'),
-(4, 'Report 4', 'This is the fourth test report.', '2023-10-25 12:15:00', 'Gym', 'Test', 6, 'report4.jpg'),
-(5, 'Report 5', 'This is the fifth test report.', '2023-10-26 08:30:00', 'Bus Stop', 'Test', 7, 'report5.jpg'),
-(6, 'Report 6', 'This is the sixth test report.', '2023-10-27 09:10:00', 'Classroom 101', 'Test', 8, 'report6.jpg'),
-(7, 'Report 7', 'This is the seventh test report.', '2023-10-28 10:40:00', 'Library', 'Test', 9, 'report7.jpg'),
-(8, 'Report 8', 'This is the eighth test report.', '2023-10-29 13:55:00', 'Administration Office', 'Test', 10, 'report8.jpg'),
-(9, 'Report 9', 'This is the ninth test report.', '2023-10-30 15:00:00', 'Cafeteria', 'Test', 3, 'report9.jpg'),
-(10, 'Report 10', 'This is the tenth test report.', '2023-10-31 14:25:00', 'Lecture Hall A', 'Test', 4, 'report10.jpg'),
-(17, 'Cellphone', 'Color black iphone', '2023-11-02 17:51:00', 'CECS Bldg', 'Gadget', 0, ''),
-(16, 'Cellphone', 'IPHONE FULLY PAID', '2023-11-10 13:21:00', 'HEB', 'Gadget', 0, '');
+(1, 'Lost Watch', 'Gold wristwatch with a leather strap', '2023-11-01 15:45:00', 'Library', 'Accessories', 'Eva Johnson', 'watch.jpg'),
+(2, 'Found Umbrella', 'Red umbrella left near the entrance', '2023-11-05 11:30:00', 'CECS Building', 'Accessories', 'Mark Anderson', 'umbrella.jpg'),
+(3, 'Missing Glasses', 'Black rectangular eyeglasses', '2023-11-10 14:00:00', 'HEB Building', 'Accessories', 'Sophia Lee', 'glasses.jpg'),
+(4, 'Lost Laptop Charger', 'Dell laptop charger with a black cable', '2023-11-12 16:15:00', 'Facade', 'Electronics', 'Daniel Williams', 'charger.jpg'),
+(5, 'Found Wallet', 'Brown leather wallet with credit cards', '2023-11-15 13:50:00', 'Comfort Room', 'Personal Items', 'Olivia Taylor', 'wallet.jpg'),
+(6, 'Missing Backpack', 'Gray backpack with a laptop inside', '2023-11-18 09:30:00', 'Library', 'Bags', 'Benjamin Davis', 'backpack.jpg'),
+(7, 'Lost ID Badge', 'Company ID badge with a blue lanyard', '2023-11-20 10:00:00', 'CECS Building', 'Accessories', 'Emma Wilson', 'badge.jpg'),
+(8, 'Found Bicycle', 'Blue mountain bike near the bike rack', '2023-11-22 14:45:00', 'HEB Building', 'Sports Equipment', 'Liam Martinez', 'bike.jpg'),
+(9, 'Missing Wallet', 'Green wallet with driver\'s license', '2023-11-25 12:30:00', 'Facade', 'Personal Items', 'Aiden Brown', 'green_wallet.jpg'),
+(10, 'Found Headphones', 'Wireless headphones in a black case', '2023-11-28 15:20:00', 'Comfort Room', 'Electronics', 'Mia Davis', 'headphones.jpg');
 
 -- --------------------------------------------------------
 
@@ -268,7 +225,7 @@ INSERT INTO `tbstudinfo` (`studid`, `lastname`, `firstname`, `course`) VALUES
 
 DROP TABLE IF EXISTS `tbusers`;
 CREATE TABLE IF NOT EXISTS `tbusers` (
-  `userid` int NOT NULL,
+  `userid` int NOT NULL AUTO_INCREMENT,
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `usertype` varchar(50) DEFAULT NULL,
@@ -279,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `tbusers` (
   PRIMARY KEY (`userid`),
   KEY `empid` (`empid`),
   KEY `studid` (`studid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tbusers`
@@ -299,8 +256,8 @@ INSERT INTO `tbusers` (`userid`, `username`, `password`, `usertype`, `status`, `
 (11, 'admin_user1', 'adminpass1', 'admin', 'active', 'adminuser1@gmail.com', 11, NULL),
 (12, 'admin_user2', 'adminpass2', 'admin', 'active', 'adminuser2@gmail.com', 12, NULL),
 (13, 'admin_user3', 'adminpass3', 'admin', 'active', 'adminuser3@gmail.com', 13, NULL),
-(14, 'guard_user1', 'guarduser1', 'guard', 'active', 'guarduser1@gmail.com', 14, NULL),
-(15, 'guard_user2', 'guarduser2', 'guard', 'active', 'guarduser2@gmail.com', 15, NULL);
+(14, 'guard_user1', 'guardpass1', 'guard', 'active', 'guarduser1@gmail.com', 14, NULL),
+(15, 'guard_user2', 'guardpass2', 'guard', 'active', 'guarduser2@gmail.com', 15, 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
