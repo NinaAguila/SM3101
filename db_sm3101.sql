@@ -11,7 +11,6 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -164,7 +163,8 @@ CREATE TABLE IF NOT EXISTS `tbusers` (
   `password` varchar(255) DEFAULT NULL,
   `incharge_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `incharge_id` (`incharge_id`)
+  KEY `incharge_id` (`incharge_id`),
+  CONSTRAINT `fk_incharge_id` FOREIGN KEY (`incharge_id`) REFERENCES `tbincharge` (`incharge_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -172,10 +172,10 @@ CREATE TABLE IF NOT EXISTS `tbusers` (
 --
 
 INSERT INTO `tbusers` (`id`, `username`, `password`, `incharge_id`) VALUES
-(1, 'aguila', '123', 1),
-(2, 'dimaala', '345', 2),
-(3, 'mendoza', '222', 3),
-(4, 'dimaandal', '6678', 4);
+(1, 'aguila', 'hashed_password_1', 1),
+(2, 'dimaala', 'hashed_password_2', 2),
+(3, 'mendoza', 'hashed_password_3', 3),
+(4, 'dimaandal', 'hashed_password_4', 4);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
