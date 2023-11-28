@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2023 at 02:33 PM
+-- Generation Time: Nov 28, 2023 at 01:33 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -83,20 +83,20 @@ CREATE TABLE `tbempinfo` (
 
 INSERT INTO `tbempinfo` (`empid`, `lastname`, `firstname`, `department`) VALUES
 (1, 'aguila', 'nina', 'cics'),
-(2, 'reyes', 'christopher', 'cics'),
-(3, 'sulit', 'richelle', 'cics'),
-(4, 'suarez', 'sileen', 'cics'),
-(5, 'caibigan', 'ritchie', 'cics'),
-(6, 'sambitan', 'krystel', 'cics'),
-(7, 'labiaga', 'elenor', 'cics'),
-(8, 'libunao', 'angelene', 'cics'),
-(9, 'bayyou', 'demeke', 'cics'),
-(10, 'tumbaga', 'jennelyn', 'cics'),
+(2, 'Reyes', 'Christopher', 'cics'),
+(3, 'Sulit', 'Richelle', 'cics'),
+(4, 'Suarez', 'Aileen', 'cics'),
+(5, 'Caibigan', 'Ritchie', 'cics'),
+(6, 'Sambitan', 'Krystel', 'cics'),
+(7, 'Labiaga', 'Elenor', 'cics'),
+(8, 'Libunao', 'Angelene', 'cics'),
+(9, 'Bayyou', 'Demeke', 'cics'),
+(10, 'Tumbaga', 'Jennelyn', 'cics'),
 (11, 'Pratts', 'Dr. Camille', 'cics'),
 (12, 'Guismundo', 'Dr. Marielle', 'cics'),
 (13, 'Corpuz', 'Dr. Francisco', 'cics'),
 (14, 'Balita', 'Dr. Eric', 'cics'),
-
+(15, 'dimaala', 'ayen', 'cics');
 
 -- --------------------------------------------------------
 
@@ -138,15 +138,15 @@ CREATE TABLE `tbstudinfo` (
 
 INSERT INTO `tbstudinfo` (`studid`, `lastname`, `firstname`, `course`) VALUES
 (1, 'parker', 'peter', 'bsit'),
-(2, 'tipan', 'savior ', 'bsit'),
-(3, 'tenoso', 'chrizelle', 'bsit'),
-(4, 'macalintal', 'kyla', 'bsit'),
-(5, 'magpantay', 'angelo', 'bsit'),
-(6, 'manalo', 'ryan', 'bsit'),
-(7, 'encarnado', 'mel', 'bsit'),
-(8, 'venerable', 'mike', 'bsit'),
-(9, 'orense', 'jon', 'bsit'),
-(10, 'torres', 'michael', 'bsit');
+(2, 'Tipan', 'Savior ', 'bsit'),
+(3, 'Tenoso', 'Chrizelle', 'bsit'),
+(4, 'Macalintal', 'Kyla', 'bsit'),
+(5, 'Magpantay', 'Angelo', 'bsit'),
+(6, 'Manalo', 'Ryan', 'bsit'),
+(7, 'Encarnado', 'Mel', 'bsit'),
+(8, 'Venerable', 'Mike', 'bsit'),
+(9, 'Orense', 'Jon', 'bsit'),
+(10, 'Torres', 'Michael', 'bsit');
 
 -- --------------------------------------------------------
 
