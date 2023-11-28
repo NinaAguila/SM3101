@@ -95,9 +95,7 @@ INSERT INTO `tbempinfo` (`empid`, `lastname`, `firstname`, `department`) VALUES
 (11, 'Pratts', 'Dr. Camille', 'cics'),
 (12, 'Guismundo', 'Dr. Marielle', 'cics'),
 (13, 'Corpuz', 'Dr. Francisco', 'cics'),
-(14, 'Balita', 'Dr. Eric', 'cics'),
-(15, 'dimaala', 'ayen', 'cics');
-
+(14, 'Balita', 'Dr. Eric', 'cics');
 -- --------------------------------------------------------
 
 --
