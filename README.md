@@ -17,12 +17,12 @@ To experience the system firsthand, follow these steps:
 
 1. **Clone the Repository:**
    ```bash
-https://github.com/NinaAguila/SM3101.git
+   https://github.com/NinaAguila/SM3101.git
    ```
 
 2. **Navigate to the Project Directory:**
    ```bash
-   cd SM3101-group-3-6-4-5-7-2-8-and-1/bsugrievance
+   cd SM3101-group-3-6-4-5-7-2-8-and-1/bsugrievance/
    ```
 
 3. **Other Requirements:**
