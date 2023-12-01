@@ -17,7 +17,7 @@ To experience the system firsthand, follow these steps:
 
 1. **Clone the Repository:**
    ```bash
-(https://github.com/NinaAguila/SM3101.git)
+https://github.com/NinaAguila/SM3101.git
    ```
 
 2. **Navigate to the Project Directory:**
