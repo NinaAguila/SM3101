@@ -142,21 +142,21 @@ CREATE TABLE IF NOT EXISTS `tbempcontact` (
   `email` varchar(255) NOT NULL,
   `contact_no` bigint NOT NULL,
   `address` varchar(255) NOT NULL,
+  `profile_picture` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `empid` (`empid`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tbempcontact`
 --
 
-INSERT INTO `tbempcontact` (`id`, `empid`, `password`, `email`, `contact_no`, `address`) VALUES
-(1, 2, '1253208465b1efa876f982d8a9e73eef', 'balazon@gmail.com', 9123456789, 'Lipa City, Batangas'),
-(2, 1, 'nina', 'nina@gmail.com', 9123456789, 'Batangas'),
-(3, 3, 'sulit', 'sulit@gmail.com', 9123456789, 'Batangas'),
-(4, 4, 'angeline', 'angeline@gmail.com', 9123456789, 'Batangas'),
-(5, 5, 'dionne', 'dionne@gmail.com', 9123456789, 'Batangas'),
-(6, 6, 'jonah', 'jonah@gmail.com', 9123456789, 'Batngas');
+INSERT INTO `tbempcontact` (`id`, `empid`, `password`, `email`, `contact_no`, `address`, `profile_picture`) VALUES
+(1, 1, 'aguila', 'nina@gmail.com', 9123456789, 'Batangas', NULL),
+(2, 2, 'balazon', 'francis@gmail.com', 9123456789, 'Lipa City', NULL),
+(3, 3, 'melo', 'jonah@gmail.com', 9123456789, 'Batangas', NULL),
+(4, 4, 'libunao', 'angeline@gmail.com', 9123456789, 'Batangas', NULL),
+(5, 5, 'dionne', 'dionne@gmail.com', 9123456789, 'Batangas', NULL);
 
 -- --------------------------------------------------------
 
@@ -171,19 +171,18 @@ CREATE TABLE IF NOT EXISTS `tbempinfo` (
   `firstname` varchar(25) NOT NULL,
   `department` varchar(20) NOT NULL,
   PRIMARY KEY (`empid`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tbempinfo`
 --
 
 INSERT INTO `tbempinfo` (`empid`, `lastname`, `firstname`, `department`) VALUES
-(1, 'aguila', 'nina', 'cics'),
+(1, 'Aguila', 'Nina', 'CICS'),
 (2, 'Balazon', 'Francis', 'CICS'),
-(3, 'Sulit', 'Richelle', 'CICS'),
+(3, 'Melo', 'Jonah', 'CICS'),
 (4, 'Libunao', 'Angeline', 'CICS'),
-(5, 'Alimoren', 'Dionne', 'CICS'),
-(6, 'Melo', 'Jonah', 'CICS');
+(5, 'Alimoren', 'Dionne', 'CICS');
 
 -- --------------------------------------------------------
 
@@ -199,20 +198,22 @@ CREATE TABLE IF NOT EXISTS `tbstudcontact` (
   `email` varchar(255) NOT NULL,
   `contact_no` bigint NOT NULL,
   `address` varchar(255) NOT NULL,
+  `profile_picture` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `studid` (`studid`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tbstudcontact`
 --
 
-INSERT INTO `tbstudcontact` (`id`, `studid`, `password`, `email`, `contact_no`, `address`) VALUES
-(1, 3, '10c7ccc7a4f0aff03c915c485565b9da', 'ryan@gmail.com', 9123456789, 'Cuenca, Batangas'),
-(2, 4, 'evers', 'evers@gmail.com', 9123456789, 'Lipa City'),
-(3, 5, 'ebe6941ee8a10c14dc933ae37a0f43fc', 'jenny@gmail.com', 9123456789, 'Santa Terisita'),
-(4, 6, 'jella', 'jella@gmail.com', 9123456789, 'Lipa City'),
-(5, 7, 'eka', 'erika@gmail.com', 9123456789, 'Quezon');
+INSERT INTO `tbstudcontact` (`id`, `studid`, `password`, `email`, `contact_no`, `address`, `profile_picture`) VALUES
+(1, 1, 'ryan', 'ryan@gmail.com', 9123456789, 'Cuenca, Batangas', NULL),
+(2, 2, 'jenny', 'jenny@gmail.com', 9123456789, 'Santa Teresita, Batangas', NULL),
+(3, 3, 'erika', 'erika@gmail.com', 9123456789, 'San Antonio, Quezon', NULL),
+(4, 4, 'jella', 'jella@gmail.com', 9123456789, 'Bagong Pook, Lipa City', NULL),
+(5, 5, 'ever', 'evers@gmail.com', 9123456789, 'San Jose, Batangas', NULL);
+
 
 -- --------------------------------------------------------
 
@@ -227,20 +228,18 @@ CREATE TABLE IF NOT EXISTS `tbstudinfo` (
   `firstname` varchar(25) NOT NULL,
   `course` varchar(20) NOT NULL,
   PRIMARY KEY (`studid`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tbstudinfo`
 --
 
 INSERT INTO `tbstudinfo` (`studid`, `lastname`, `firstname`, `course`) VALUES
-(1, 'parker', 'peter', 'bsit'),
-(2, 'kent', 'clark', 'bscs'),
-(3, 'Ramos', 'Ryan', 'BSIT'),
-(4, 'Dimaculangan', 'Everson', 'BSIT'),
-(5, 'Gabuya', 'Jenny Mae', 'BSIT'),
-(6, 'Peloramas', 'Jelladane', 'BSIT'),
-(7, 'Magnaye', 'Erika', 'BSIT');
+(1, 'Ramos', 'Ryan Ceasar', 'BSIT'),
+(2, 'Gabuya', 'jenny Mae', 'BSIT'),
+(3, 'Magnaye', 'Erika', 'BSIT'),
+(4, 'Peloramas', 'Jelladane', 'BSIT'),
+(5, 'Dimaculangan', 'Everson', 'BSIT');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
